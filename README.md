@@ -94,9 +94,16 @@ setup. Short version: set three repo *variables* (`AWS_REGION`, `S3_BUCKET`,
 
 ## A note on reproducibles
 
-Official reproducibles are hosted by Solution Tree (Free Resources) and
-AllThingsPLC (Tools & Resources), whose tools may be copied and distributed
-within teams, schools, and districts. The resource cards link to those official
-hubs and name the exact tool to find. The **EMS-created templates** in the Guide
-are editable equivalents inspired by the PLC at Work process — not copies of
-copyrighted forms.
+Official reproducibles are hosted by Solution Tree, whose free reproducibles may
+be copied and distributed within teams, schools, and districts. Most resource
+cards link **directly to the official PDF** and note the source book; a few
+without a public direct link point to the book's resource page instead. The
+**EMS-created templates** in the Guide are editable equivalents inspired by the
+PLC at Work process — not copies of copyrighted forms.
+
+## License
+
+The site's own code and EMS-created content are licensed under the
+[Apache License 2.0](LICENSE). This does not extend to third-party materials
+(such as Solution Tree reproducibles), which remain under their respective
+owners' terms.

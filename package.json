@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "description": "EMS PLT Playbook — a resource site to help teams move from PLC Lite to PLC Right.",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
