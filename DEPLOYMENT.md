@@ -1,169 +1,127 @@
 # Deployment: S3 + CloudFront via GitHub Actions
 
-This site builds to plain static files (`dist/`) and is designed to be hosted on
-Amazon S3 behind a CloudFront CDN, deployed automatically by GitHub Actions on
-every push to `main`.
+This site builds to plain static files (`dist/`) and is hosted on Amazon S3
+behind a CloudFront CDN, deployed automatically by GitHub Actions on every push
+to `main`.
 
 You can develop and preview the whole site locally **without any of this** (see
-[README.md](README.md)). Come back here when you're ready to put it online.
+[README.md](README.md)). Come back here when you're ready to modify the
+infrastructure or understand how the pipeline works.
 
 ---
 
-## Overview
+## Architecture
 
 ```
 push to main ──▶ GitHub Actions ──▶ npm run build ──▶ aws s3 sync dist/ ──▶ S3 bucket
-                                                          │
-                                                          └─▶ CloudFront invalidation ──▶ live site
+                       │                                                          │
+                  (OIDC, no keys)                                                 ▼
+                                                                      CloudFront CDN
+                                                                      + cache invalidation
+                                                                             │
+                                                                             ▼
+                                                               https://emsplc.mrswebber.com
 ```
 
 The workflow lives in [.github/workflows/deploy.yml](.github/workflows/deploy.yml).
 
 ---
 
-## One-time AWS setup
+## Provisioned resources
 
-### 1. Create the S3 bucket
+All resources were created from [infra/cloudformation.yaml](infra/cloudformation.yaml),
+stack **`emsplc-site`** in **`us-east-1`**.
 
-- Create a bucket (e.g. `ems-plt-playbook`) in your region.
-- **Keep "Block all public access" ON.** With CloudFront + Origin Access
-  Control (OAC), the bucket stays private and only CloudFront can read it.
-- No need to enable "static website hosting" — we serve through CloudFront's
-  REST origin.
+| Resource | Value |
+|---|---|
+| **Live URL** | https://emsplc.mrswebber.com |
+| **S3 bucket** | `emsplc-mrswebber-com` (us-east-1, private, OAC-only access) |
+| **CloudFront distribution ID** | `E3HAA5I4NCM7B3` |
+| **CloudFront domain** | `d3t1ehp1u8tqjl.cloudfront.net` |
+| **ACM certificate** | `arn:aws:acm:us-east-1:020417111620:certificate/399d75a9-57ef-4e9f-9cb8-edc9eae564e7` |
+| **IAM deploy role** | `arn:aws:iam::020417111620:role/emsplc-github-deploy` |
+| **OIDC provider** | `arn:aws:iam::020417111620:oidc-provider/token.actions.githubusercontent.com` |
+| **Route53 zone** | `mrswebber.com` (`Z00087662BKN37H58E2QA`) |
+| **DNS records** | A + AAAA aliases → CloudFront |
 
-### 2. Create the CloudFront distribution
+GitHub repo settings (Settings → Secrets and variables → Actions):
 
-- **Origin:** your S3 bucket, using **Origin Access Control (OAC)** (CloudFront
-  will give you a bucket policy to paste in — do that so CloudFront can read the
-  private bucket).
-- **Default root object:** `index.html`
-- **Viewer protocol policy:** Redirect HTTP to HTTPS
-- After it's created, note the **Distribution ID** (looks like `E1ABCD2EFGHIJ`).
-
-### 3. Add the directory-index CloudFront Function
-
-Because pages build as `/meetings/1/index.html`, requests for `/meetings/1/`
-need to be rewritten. Use the provided function:
-
-- CloudFront console → **Functions** → **Create function**
-- Paste the contents of [infra/cloudfront-index-rewrite.js](infra/cloudfront-index-rewrite.js)
-- **Publish**, then attach it to your distribution's **default behavior** on the
-  **Viewer request** event.
-
-### 4. (Optional) Custom domain
-
-- Request an ACM certificate **in us-east-1** for your domain (e.g.
-  `plc.yourdistrict.org`).
-- Add the domain as an **Alternate domain name (CNAME)** on the distribution and
-  select the certificate.
-- Point a DNS record (Route 53 alias or a CNAME) at the CloudFront domain.
-- Update `site` in [astro.config.mjs](astro.config.mjs) to your final URL.
+| Type | Name | Value |
+|---|---|---|
+| Variable | `AWS_REGION` | `us-east-1` |
+| Variable | `S3_BUCKET` | `emsplc-mrswebber-com` |
+| Variable | `CLOUDFRONT_DISTRIBUTION_ID` | `E3HAA5I4NCM7B3` |
+| Secret | `AWS_ROLE_ARN` | `arn:aws:iam::020417111620:role/emsplc-github-deploy` |
 
 ---
 
-## Connecting GitHub Actions to AWS (keyless OIDC — recommended)
+## Security posture
 
-This avoids storing long-lived AWS keys in GitHub.
-
-### 1. Add GitHub as an OIDC identity provider in IAM
-
-- IAM → Identity providers → Add provider → **OpenID Connect**
-- Provider URL: `https://token.actions.githubusercontent.com`
-- Audience: `sts.amazonaws.com`
-
-### 2. Create an IAM role for the workflow
-
-Trust policy (replace `ACCOUNT_ID` and `OWNER/REPO`):
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Federated": "arn:aws:iam::ACCOUNT_ID:oidc-provider/token.actions.githubusercontent.com"
-      },
-      "Action": "sts:AssumeRoleWithWebIdentity",
-      "Condition": {
-        "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
-        "StringLike": { "token.actions.githubusercontent.com:sub": "repo:OWNER/REPO:ref:refs/heads/main" }
-      }
-    }
-  ]
-}
-```
-
-Permissions policy (replace `BUCKET` and the distribution ARN):
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["s3:ListBucket"],
-      "Resource": "arn:aws:s3:::BUCKET"
-    },
-    {
-      "Effect": "Allow",
-      "Action": ["s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::BUCKET/*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": ["cloudfront:CreateInvalidation"],
-      "Resource": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
-    }
-  ]
-}
-```
-
-Copy the role's ARN.
-
-### 3. Add GitHub repo settings
-
-Repo → **Settings** → **Secrets and variables** → **Actions**:
-
-**Secrets:**
-- `AWS_ROLE_ARN` — the IAM role ARN from step 2
-
-**Variables:**
-- `AWS_REGION` — e.g. `us-east-1`
-- `S3_BUCKET` — your bucket name
-- `CLOUDFRONT_DISTRIBUTION_ID` — your distribution ID
-
-That's it. Push to `main` and the site deploys.
+- **S3 is fully private.** Block Public Access is on for all four settings.
+  The bucket policy allows `s3:GetObject` to the CloudFront service principal
+  only, conditioned on the exact distribution ARN (OAC).
+- **OIDC keyless auth.** GitHub Actions assumes the deploy role via OIDC —
+  no long-lived AWS keys are stored anywhere.
+- **Main-branch-only trust.** The IAM trust policy is locked to
+  `repo:mrs-webber/ems-plt-playbook:ref:refs/heads/main`. PR code and fork
+  runs can never assume the role; the workflow has no `pull_request` trigger.
+- **Least-privilege deploy role.** The role can only: list the bucket, put/delete
+  objects, and create a CloudFront invalidation. Nothing else.
+- **Security response headers** (via CloudFront ResponseHeadersPolicy):
+  - `Strict-Transport-Security` — 2-year max-age, includeSubDomains, preload
+  - `Content-Security-Policy` — locked to `'self'` (no third-party asset loads)
+  - `X-Frame-Options: DENY`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - CORS scoped to the site origin
+- **TLS 1.2+ only** (TLSv1.2_2021 security policy).
 
 ---
 
-## Alternative: access keys instead of OIDC
+## How deploys work
 
-If you'd rather not set up OIDC, create an IAM user with the permissions policy
-above, generate an access key, and store `AWS_ACCESS_KEY_ID` /
-`AWS_SECRET_ACCESS_KEY` as secrets. Then replace the "Configure AWS credentials"
-step in the workflow with:
-
-```yaml
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
-```
-
-and remove the `id-token: write` permission. OIDC is preferred because there are
-no long-lived keys to leak or rotate.
+1. Push to `main` triggers `.github/workflows/deploy.yml`.
+2. The workflow checks out the repo, builds the site (`npm run build`), and
+   authenticates to AWS via OIDC (no keys required).
+3. Assets are synced in two passes with appropriate cache headers:
+   - `_astro/*` (content-hashed): `max-age=31536000, immutable`
+   - Everything else (HTML): `max-age=0, must-revalidate`
+4. A CloudFront invalidation (`/*`) flushes the cache so users see the new
+   content immediately.
 
 ---
 
-## Manual deploy (from your machine)
+## Updating infrastructure
 
-If you ever want to deploy by hand instead of via GitHub:
+The CloudFormation template at [infra/cloudformation.yaml](infra/cloudformation.yaml)
+is the single source of truth for all AWS resources. To make changes:
+
+```bash
+# Edit infra/cloudformation.yaml, then:
+aws cloudformation deploy \
+  --stack-name emsplc-site \
+  --region us-east-1 \
+  --template-file infra/cloudformation.yaml \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+---
+
+## Manual deploy (emergency)
+
+If you need to deploy by hand instead of via GitHub:
 
 ```bash
 npm run build
-aws s3 sync dist/ s3://YOUR_BUCKET/ --delete
-aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
+aws s3 sync dist/ s3://emsplc-mrswebber-com/ \
+  --delete \
+  --exclude "_astro/*" \
+  --cache-control "public,max-age=0,must-revalidate"
+aws s3 sync dist/ s3://emsplc-mrswebber-com/ \
+  --delete \
+  --exclude "*" --include "_astro/*" \
+  --cache-control "public,max-age=31536000,immutable"
+aws cloudfront create-invalidation \
+  --distribution-id E3HAA5I4NCM7B3 \
+  --paths "/*"
 ```
