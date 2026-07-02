@@ -4,9 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Update this to your real domain once CloudFront/Route 53 is set up,
-  // e.g. 'https://plc.emsdistrict.org'. Used to generate absolute URLs.
-  site: 'https://example.com',
+  site: 'https://emsplc.mrswebber.com',
 
   // Static output → plain HTML/CSS/JS, perfect for S3 + CloudFront.
   output: 'static',

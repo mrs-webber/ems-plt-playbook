@@ -1,0 +1,349 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  EMS PLT Playbook — private S3 bucket, CloudFront distribution with OAC,
+  ACM certificate, Route53 DNS, GitHub Actions OIDC deploy role, and
+  security response headers. Deploy to us-east-1.
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: emsplc.mrswebber.com
+    Description: The custom domain for the site.
+  HostedZoneId:
+    Type: String
+    Default: Z00087662BKN37H58E2QA
+    Description: Route53 hosted zone ID for mrswebber.com.
+  BucketName:
+    Type: String
+    Default: emsplc-mrswebber-com
+    Description: S3 bucket name (dashes, not dots, to avoid OAC TLS issues).
+  GitHubOrg:
+    Type: String
+    Default: mrs-webber
+    Description: GitHub org/owner that hosts the repo.
+  GitHubRepo:
+    Type: String
+    Default: ems-plt-playbook
+    Description: GitHub repo name.
+
+Resources:
+
+  # ---------------------------------------------------------------------------
+  # S3 — private site bucket
+  # ---------------------------------------------------------------------------
+  SiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      # Block all public access; CloudFront OAC is the only reader.
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      VersioningConfiguration:
+        Status: Enabled
+
+  # Bucket policy: allow CloudFront service principal via OAC.
+  # (Created after Distribution so ${Distribution} can be substituted.)
+  SiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SiteBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowCloudFrontOAC
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub 'arn:aws:s3:::${BucketName}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+  # ---------------------------------------------------------------------------
+  # CloudFront — Origin Access Control (SigV4, S3 REST endpoint)
+  # ---------------------------------------------------------------------------
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: emsplc-oac
+        Description: OAC for EMS PLT Playbook S3 bucket
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # ---------------------------------------------------------------------------
+  # CloudFront Function — directory-index rewrite (viewer request)
+  #
+  # Astro builds pages as /meetings/1/index.html. CloudFront's S3 REST origin
+  # only resolves /meetings/1/index.html exactly; this function rewrites
+  # /meetings/1/ → /meetings/1/index.html and /meetings/1 → same.
+  # ---------------------------------------------------------------------------
+  IndexRewriteFunction:
+    Type: AWS::CloudFront::Function
+    Properties:
+      Name: emsplc-index-rewrite
+      AutoPublish: true
+      FunctionConfig:
+        Comment: Rewrite trailing-slash and extensionless paths to /index.html
+        Runtime: cloudfront-js-1.0
+      FunctionCode: |
+        function handler(event) {
+          var request = event.request;
+          var uri = request.uri;
+          if (uri.endsWith('/')) {
+            request.uri = uri + 'index.html';
+          } else if (!uri.includes('.')) {
+            request.uri = uri + '/index.html';
+          }
+          return request;
+        }
+
+  # ---------------------------------------------------------------------------
+  # Response Headers Policy — security + CORS headers on every response
+  # ---------------------------------------------------------------------------
+  SecurityHeadersPolicy:
+    Type: AWS::CloudFront::ResponseHeadersPolicy
+    Properties:
+      ResponseHeadersPolicyConfig:
+        Name: emsplc-security-headers
+        Comment: HSTS, CSP, CORS, and standard security headers for EMS PLT Playbook
+        SecurityHeadersConfig:
+          StrictTransportSecurity:
+            # 2 years; includeSubDomains + preload eligible.
+            AccessControlMaxAgeSec: 63072000
+            IncludeSubdomains: true
+            Preload: true
+            Override: true
+          ContentTypeOptions:
+            # Prevent MIME-type sniffing.
+            Override: true
+          FrameOptions:
+            # Block framing entirely (no embedding).
+            FrameOption: DENY
+            Override: true
+          ReferrerPolicy:
+            ReferrerPolicy: strict-origin-when-cross-origin
+            Override: true
+          ContentSecurityPolicy:
+            # This site loads no third-party assets. PDFs are external links,
+            # not embeds. 'unsafe-inline' on style covers Astro's inlined CSS.
+            ContentSecurityPolicy: >-
+              default-src 'self';
+              img-src 'self' data:;
+              style-src 'self' 'unsafe-inline';
+              script-src 'self';
+              object-src 'none';
+              base-uri 'self';
+              frame-ancestors 'none'
+            Override: true
+        CorsConfig:
+          AccessControlAllowCredentials: false
+          AccessControlAllowHeaders:
+            Items:
+              - '*'
+          AccessControlAllowMethods:
+            Items:
+              - GET
+              - HEAD
+              - OPTIONS
+          AccessControlAllowOrigins:
+            Items:
+              - !Sub 'https://${DomainName}'
+          OriginOverride: true
+
+  # ---------------------------------------------------------------------------
+  # ACM Certificate — must be in us-east-1 for CloudFront
+  # CloudFormation auto-creates the Route53 validation record and waits.
+  # ---------------------------------------------------------------------------
+  Certificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: !Ref DomainName
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: !Ref DomainName
+          HostedZoneId: !Ref HostedZoneId
+
+  # ---------------------------------------------------------------------------
+  # CloudFront Distribution
+  # ---------------------------------------------------------------------------
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: EMS PLT Playbook
+        Aliases:
+          - !Ref DomainName
+        ViewerCertificate:
+          AcmCertificateArn: !Ref Certificate
+          MinimumProtocolVersion: TLSv1.2_2021
+          SslSupportMethod: sni-only
+        DefaultRootObject: index.html
+        HttpVersion: http2and3
+        IPV6Enabled: true
+        Origins:
+          - Id: S3Origin
+            # Use the regional domain name (required for OAC + private bucket).
+            DomainName: !GetAtt SiteBucket.RegionalDomainName
+            S3OriginConfig:
+              # Empty string = no legacy OAI; OAC (below) handles auth.
+              OriginAccessIdentity: ''
+            OriginAccessControlId: !Ref OriginAccessControl
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          # AWS managed CachingOptimized policy (content-type compression aware).
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          ResponseHeadersPolicyId: !Ref SecurityHeadersPolicy
+          FunctionAssociations:
+            - EventType: viewer-request
+              FunctionARN: !GetAtt IndexRewriteFunction.FunctionARN
+          Compress: true
+        # S3 returns 403 for missing keys (private bucket); treat both 403 and
+        # 404 as a 404 and serve our custom error page.
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+            ErrorCachingMinTTL: 10
+          - ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /404.html
+            ErrorCachingMinTTL: 10
+
+  # ---------------------------------------------------------------------------
+  # Route53 — alias records for the custom domain
+  # CloudFront's global hosted zone ID is always Z2FDTNDATAQYW2.
+  # ---------------------------------------------------------------------------
+  DnsRecordA:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+        EvaluateTargetHealth: false
+
+  DnsRecordAAAA:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !Ref HostedZoneId
+      Name: !Ref DomainName
+      Type: AAAA
+      AliasTarget:
+        DNSName: !GetAtt Distribution.DomainName
+        HostedZoneId: Z2FDTNDATAQYW2
+        EvaluateTargetHealth: false
+
+  # ---------------------------------------------------------------------------
+  # GitHub Actions OIDC Provider
+  # ---------------------------------------------------------------------------
+  GitHubOIDCProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      # Thumbprints for token.actions.githubusercontent.com (both intermediate CAs).
+      ThumbprintList:
+        - 6938fd4d98bab03faadb97b34396831e3780aea1
+        - 1c58a3a8518e8759bf075b76b750d4f2df264fcd
+
+  # ---------------------------------------------------------------------------
+  # IAM Deploy Role — least-privilege, OIDC trust pinned to main branch only
+  #
+  # Security properties:
+  #   - Trust pinned to the exact repo + main branch ref (not a wildcard).
+  #   - No PR or fork code can ever assume this role (no pull_request trigger,
+  #     and the sub claim would be a different ref).
+  #   - Permissions: ListBucket (sync), PutObject + DeleteObject (upload),
+  #     CreateInvalidation (cache flush). Nothing else.
+  # ---------------------------------------------------------------------------
+  DeployRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: emsplc-github-deploy
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Ref GitHubOIDCProvider
+            Action: sts:AssumeRoleWithWebIdentity
+            Condition:
+              StringEquals:
+                token.actions.githubusercontent.com:aud: sts.amazonaws.com
+              StringLike:
+                token.actions.githubusercontent.com:sub:
+                  !Sub 'repo:${GitHubOrg}/${GitHubRepo}:ref:refs/heads/main'
+      Policies:
+        - PolicyName: emsplc-deploy-policy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: S3ListBucket
+                Effect: Allow
+                Action: s3:ListBucket
+                Resource: !GetAtt SiteBucket.Arn
+              - Sid: S3PutDelete
+                Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:DeleteObject
+                Resource: !Sub '${SiteBucket.Arn}/*'
+              - Sid: CloudFrontInvalidate
+                Effect: Allow
+                Action: cloudfront:CreateInvalidation
+                Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}'
+
+# ---------------------------------------------------------------------------
+# Outputs
+# ---------------------------------------------------------------------------
+Outputs:
+  BucketName:
+    Description: S3 bucket name
+    Value: !Ref SiteBucket
+    Export:
+      Name: emsplc-BucketName
+  DistributionId:
+    Description: CloudFront distribution ID
+    Value: !Ref Distribution
+    Export:
+      Name: emsplc-DistributionId
+  DistributionDomain:
+    Description: CloudFront domain name
+    Value: !GetAtt Distribution.DomainName
+    Export:
+      Name: emsplc-DistributionDomain
+  CertificateArn:
+    Description: ACM certificate ARN
+    Value: !Ref Certificate
+    Export:
+      Name: emsplc-CertificateArn
+  DeployRoleArn:
+    Description: IAM deploy role ARN (set as AWS_ROLE_ARN secret in GitHub)
+    Value: !GetAtt DeployRole.Arn
+    Export:
+      Name: emsplc-DeployRoleArn
+  OIDCProviderArn:
+    Description: GitHub Actions OIDC provider ARN
+    Value: !Ref GitHubOIDCProvider
+    Export:
+      Name: emsplc-OIDCProviderArn
+  SiteURL:
+    Description: Live site URL
+    Value: !Sub 'https://${DomainName}'
+    Export:
+      Name: emsplc-SiteURL
