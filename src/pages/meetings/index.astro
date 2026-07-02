@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import MeetingCard from '../../components/MeetingCard.astro';
+
+const meetings = (await getCollection('meetings')).sort(
+  (a, b) => a.data.number - b.data.number
+);
+
+const phases = [
+  {
+    title: 'Phase 1 · Foundations & Culture',
+    blurb: 'Build shared purpose, norms, and an honest picture of where the team is.',
+    range: [1, 4],
+  },
+  {
+    title: 'Phase 2 · What Do We Want Students to Learn?',
+    blurb: 'Identify one essential standard, deconstruct it, and define proficiency.',
+    range: [5, 8],
+  },
+  {
+    title: 'Phase 3 · How Will We Know They Learned It?',
+    blurb: 'Design and quality-check a common formative assessment, then teach with the end in mind.',
+    range: [9, 12],
+  },
+  {
+    title: 'Phase 4 · Response, Reflection & Growth',
+    blurb: 'The turning point — analyze evidence, respond with intervention and extension, reassess, and reflect.',
+    range: [13, 18],
+  },
+];
+
+const structure = [
+  ['0–5 min', 'Reconnect & refocus', 'What did we agree to do last time? Did we complete it?'],
+  ['5–10 min', 'PLC question of the day', 'Which of the four critical questions is driving today?'],
+  ['10–35 min', 'Team work time', 'Create, revise, analyze, or decide something concrete.'],
+  ['35–43 min', 'Product check', 'What did we complete? What is still unfinished?'],
+  ['43–45 min', 'Commitments', 'Who does what, by when, and what to bring next time.'],
+];
+---
+
+<BaseLayout
+  title="The 18 Meetings"
+  description="A yearlong sequence of 18 PLT meeting agendas that lead a team through one authentic PLC learning cycle."
+>
+  <PageHeader
+    eyebrow="Yearlong Sequence"
+    title="The 18 Meetings"
+    subtitle="One authentic PLC learning cycle across 18 meetings — 45 minutes, every other Wednesday. Deliberately paced, with buffer meetings built in for a real cultural shift."
+  />
+
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <!-- Recommended structure -->
+    <section
+      class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8"
+    >
+      <h2 class="text-xl font-bold text-brand-800">
+        Every meeting follows the same 45-minute structure
+      </h2>
+      <p class="mt-2 text-slate-600">
+        A predictable rhythm lowers the cost of the cultural shift — teams spend
+        their energy on the work, not on figuring out how the meeting runs.
+      </p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          structure.map(([time, label, desc]) => (
+            <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <p class="text-sm font-bold text-accent-600">{time}</p>
+              <p class="mt-1 font-semibold text-brand-800">{label}</p>
+              <p class="mt-1 text-xs text-slate-600">{desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Meetings by phase -->
+    {
+      phases.map((phase) => (
+        <section class="mt-12">
+          <div class="flex flex-col gap-1 border-l-4 border-accent-400 pl-4">
+            <h2 class="text-lg font-bold text-brand-800">{phase.title}</h2>
+            <p class="text-sm text-slate-600">{phase.blurb}</p>
+          </div>
+          <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {meetings
+              .filter(
+                (m) =>
+                  m.data.number >= phase.range[0] &&
+                  m.data.number <= phase.range[1]
+              )
+              .map((m) => (
+                <MeetingCard meeting={m} />
+              ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <!-- Buffer note -->
+    <aside
+      class="mt-12 rounded-2xl border border-brand-200 bg-brand-50 p-6 md:p-8"
+    >
+      <h2 class="text-lg font-bold text-brand-800">Why the buffer meetings?</h2>
+      <p class="mt-2 max-w-3xl text-slate-700">
+        Meetings <strong>4, 8, 12, and 16</strong> are intentional buffers placed
+        right after the hardest cultural shifts — norms, essential standards,
+        assessment design, and intervention. They are not wasted time. After 15+
+        years of PLT Lite, teams need room to reset, calibrate, and correct
+        course. Missteps are expected and planned for.
+      </p>
+    </aside>
+  </div>
+</BaseLayout>

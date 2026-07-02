@@ -1,0 +1,89 @@
+---
+import { site, nav } from '../config';
+
+const currentPath = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href);
+---
+
+<header
+  class="no-print sticky top-0 z-50 border-b border-brand-800/10 bg-white/90 backdrop-blur"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+    <a href="/" class="flex items-center gap-3 group">
+      <img
+        src="/tiger-logo.png"
+        width="210"
+        height="137"
+        alt="Elsinore Middle School Tigers"
+        class="h-11 w-auto"
+      />
+      <span class="leading-tight">
+        <span class="block font-bold text-brand-800 group-hover:text-brand-600"
+          >{site.shortName}</span
+        >
+        <span class="block text-xs text-slate-500">{site.tagline}</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              isActive(item.href)
+                ? 'bg-brand-50 text-brand-800'
+                : 'text-slate-600 hover:bg-slate-100 hover:text-brand-800',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile nav (details/summary — no JS needed) -->
+    <details class="relative md:hidden">
+      <summary
+        class="flex cursor-pointer items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 [&::-webkit-details-marker]:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          ><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"
+          ></path></svg
+        >
+        Menu
+      </summary>
+      <nav
+        class="absolute right-0 mt-2 w-56 rounded-lg border border-slate-200 bg-white p-2 shadow-lg"
+        aria-label="Primary mobile"
+      >
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+              class:list={[
+                'block rounded-md px-3 py-2 text-sm font-medium',
+                isActive(item.href)
+                  ? 'bg-brand-50 text-brand-800'
+                  : 'text-slate-600 hover:bg-slate-100',
+              ]}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+  </div>
+</header>

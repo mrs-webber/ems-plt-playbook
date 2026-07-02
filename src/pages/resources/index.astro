@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ResourceCard from '../../components/ResourceCard.astro';
+
+const resources = await getCollection('resources');
+const meetings = await getCollection('meetings');
+
+// Map each resource id -> sorted list of meeting numbers that use it.
+const usedIn = new Map<string, number[]>();
+for (const m of meetings) {
+  for (const id of [...m.data.resources, ...m.data.revisit]) {
+    const list = usedIn.get(id) ?? [];
+    if (!list.includes(m.data.number)) list.push(m.data.number);
+    usedIn.set(id, list);
+  }
+}
+for (const list of usedIn.values()) list.sort((a, b) => a - b);
+
+const categoryOrder = [
+  'Culture & Foundations',
+  'Essential Standards & Learning Targets',
+  'Common Formative Assessment',
+  'Data & Evidence',
+  'Intervention & Extension',
+  'Reflection & Monitoring',
+  'EMS Editable Templates',
+  'Optional / As Needed',
+];
+
+const byCategory = categoryOrder
+  .map((cat) => ({
+    category: cat,
+    items: resources
+      .filter((r) => r.data.category === cat)
+      .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+  }))
+  .filter((g) => g.items.length > 0);
+
+const requiredPacket = resources
+  .filter((r) => r.data.required)
+  .sort((a, b) => (usedIn.get(a.id)?.[0] ?? 99) - (usedIn.get(b.id)?.[0] ?? 99));
+---
+
+<BaseLayout
+  title="Resources"
+  description="Every reproducible in the EMS PLT playbook — Solution Tree and AllThingsPLC tools plus editable EMS templates — with how and why to use each, and which meetings they support."
+>
+  <PageHeader
+    eyebrow="Reproducibles & Tools"
+    title="Resources"
+    subtitle="Every tool a team needs for the year, organized so PLTs never feel like PLC is just a packet of forms. Start with the required packet, and reach for the rest as needed."
+  />
+
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <!-- Sourcing note -->
+    <div
+      class="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900"
+    >
+      <p>
+        <strong>About the links.</strong> Most cards link straight to the
+        official free reproducible PDF on
+        <a
+          class="underline"
+          href="https://www.solutiontree.com/free-resources"
+          target="_blank"
+          rel="noopener noreferrer">Solution Tree</a
+        >, whose reproducibles may be copied and distributed within teams,
+        schools, and districts. A few tools without a direct public link point to
+        the book's resource page instead — look for the tool by name there.
+        EMS-created templates are editable equivalents inspired by the PLC at
+        Work process, not copies of copyrighted forms. Update any link by editing
+        <code class="rounded bg-amber-100 px-1">src/data/resources.json</code>.
+      </p>
+    </div>
+
+    <!-- Required packet -->
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-brand-800">
+        The required first-year packet
+      </h2>
+      <p class="mt-2 max-w-3xl text-slate-600">
+        For teams that want to be led step by step, start with only these. They
+        give a team the full cycle: culture → clarity → assessment → evidence →
+        intervention/extension → reflection.
+      </p>
+      <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          requiredPacket.map((r, i) => (
+            <li>
+              <a
+                href={`#${r.id}`}
+                class="flex h-full items-start gap-3 rounded-xl border border-brand-200 bg-white p-4 shadow-sm transition-colors hover:border-brand-400 hover:bg-brand-50"
+              >
+                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-800 text-xs font-bold text-white">
+                  {i + 1}
+                </span>
+                <span>
+                  <span class="block text-sm font-semibold text-brand-800">
+                    {r.data.title}
+                  </span>
+                  <span class="text-xs text-slate-500">{r.data.source}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- All resources by category -->
+    {
+      byCategory.map((group) => (
+        <section class="mt-14">
+          <h2 class="border-l-4 border-accent-400 pl-4 text-xl font-bold text-brand-800">
+            {group.category}
+          </h2>
+          <div class="mt-5 grid gap-4 md:grid-cols-2">
+            {group.items.map((r) => (
+              <ResourceCard resource={r} usedIn={usedIn.get(r.id) ?? []} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</BaseLayout>

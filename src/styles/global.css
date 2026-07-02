@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+/* =========================================================================
+   EMS PLT Playbook — design tokens
+   Rebrand the whole site by editing the color values below.
+   ========================================================================= */
+@theme {
+  /* Brand — Elsinore Middle School red, softened to a calmer brick tone,
+     deepening to warm charcoal for dark surfaces and headings. */
+  --color-brand-50: #faf4f4;
+  --color-brand-100: #f2e4e5;
+  --color-brand-200: #e4c8ca;
+  --color-brand-300: #cf9ca1;
+  --color-brand-400: #b56f76;
+  --color-brand-500: #9c4a53;
+  --color-brand-600: #9e2933; /* primary red — links, buttons */
+  --color-brand-700: #7f2028; /* deep red — table headers */
+  --color-brand-800: #241a1b; /* warm charcoal — dark surfaces, headings */
+  --color-brand-900: #150e0f; /* near-black */
+
+  /* Accent — a calmer, deeper red for calls to action and highlights. */
+  --color-accent-50: #fbf1f2;
+  --color-accent-100: #f4dde0;
+  --color-accent-300: #dd99a0;
+  --color-accent-400: #c3626c;
+  --color-accent-500: #b52c39;
+  --color-accent-600: #97222c;
+
+  /* Fonts — a clean system stack (no external fonts = fast + offline-friendly) */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Smooth in-page anchor scrolling with room for the sticky header */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased;
+  font-family: var(--font-sans);
+}
+
+/* =========================================================================
+   Accessibility (WCAG 2.2 AA)
+   ========================================================================= */
+
+/* Skip link — first focusable element, hidden until focused (2.4.1) */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: var(--color-brand-800);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+#main-content:focus {
+  outline: none;
+}
+
+/* Visible keyboard focus on every interactive element (2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--color-accent-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+/* Use a light outline on dark surfaces so it stays high-contrast */
+.bg-brand-800 :focus-visible,
+.bg-brand-900 :focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Respect reduced-motion preferences (2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================================
+   Rich text — styles for Markdown-rendered content (guide + meeting bodies)
+   Applied via <div class="rich-text"> wrappers.
+   ========================================================================= */
+.rich-text {
+  @apply text-slate-700 leading-relaxed;
+}
+.rich-text > * + * {
+  @apply mt-4;
+}
+.rich-text h2 {
+  @apply mt-10 mb-3 text-2xl font-bold text-brand-800 scroll-mt-28;
+}
+.rich-text h3 {
+  @apply mt-8 mb-2 text-xl font-semibold text-brand-700 scroll-mt-28;
+}
+.rich-text h4 {
+  @apply mt-6 mb-2 text-lg font-semibold text-slate-800;
+}
+.rich-text p {
+  @apply text-base;
+}
+.rich-text a {
+  @apply text-brand-600 font-medium underline underline-offset-2 hover:text-brand-800;
+}
+.rich-text strong {
+  @apply font-semibold text-slate-900;
+}
+.rich-text ul {
+  @apply list-disc pl-6 space-y-1.5;
+}
+.rich-text ol {
+  @apply list-decimal pl-6 space-y-1.5;
+}
+.rich-text li {
+  @apply pl-1;
+}
+.rich-text blockquote {
+  @apply border-l-4 border-accent-400 bg-accent-50 px-5 py-3 rounded-r-lg text-slate-700 italic;
+}
+.rich-text hr {
+  @apply my-8 border-slate-200;
+}
+.rich-text code {
+  @apply rounded bg-slate-100 px-1.5 py-0.5 text-sm text-brand-700;
+}
+
+/* Tables — used heavily for the EMS reproducible templates */
+.rich-text table {
+  @apply w-full my-6 border-collapse text-sm;
+}
+.rich-text thead {
+  @apply bg-brand-700 text-white;
+}
+.rich-text th {
+  @apply border border-brand-600 px-3 py-2 text-left font-semibold align-top;
+}
+.rich-text td {
+  @apply border border-slate-300 px-3 py-2 align-top;
+}
+.rich-text tbody tr:nth-child(even) {
+  @apply bg-slate-50;
+}
+/* Give empty template rows some height so teams can write/print in them */
+.rich-text tbody td:empty::after {
+  content: '\00a0';
+  display: block;
+  min-height: 2.25rem;
+}
+
+/* =========================================================================
+   Print — clean, ink-friendly agenda/guide printouts
+   ========================================================================= */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    @apply bg-white text-black;
+  }
+  .rich-text thead {
+    background: #e5e7eb !important;
+    color: #000 !important;
+  }
+  .rich-text th {
+    border-color: #999 !important;
+  }
+  a {
+    text-decoration: none !important;
+  }
+  .print-full {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
