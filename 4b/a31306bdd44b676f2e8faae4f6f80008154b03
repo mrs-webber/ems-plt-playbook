@@ -1,0 +1,27 @@
+DEPLOYMENT.md
+  s_86a9ada1f98316::t_210f67588fb9c0 3-5,8-9,13,17-23,30,32-33,35-45,47,49-54,58-77,79,81,83-90,94,96-97,99-105,110,112,116-126
+CLAUDE.md
+  s_86a9ada1f98316::t_7381e8053d69b5 1-88
+infra/cloudformation.yaml
+  s_86a9ada1f98316::t_4aa557d901f928 1-349
+astro.config.mjs
+  s_86a9ada1f98316::t_168db94da38c66 7
+src/pages/404.astro
+  s_86a9ada1f98316::t_2a70eaa741b8de 1-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.8",
+  "base_commit_sha": "4ba31306bdd44b676f2e8faae4f6f80008154b03",
+  "prompts": {},
+  "sessions": {
+    "s_86a9ada1f98316": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "aed8357c-e4ac-454e-a449-21e3c4529f38",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Christopher Webber <christopher.webber@formstack.com>"
+    }
+  }
+}
