@@ -1,0 +1,517 @@
+---
+/* ---------------------------------------------------------------------------
+   Printable staff guide — assembles the whole site into one document staff can
+   print or "Save as PDF" (Cmd/Ctrl+P). Five parts:
+     Part 1  Home       — mission, framing, four critical questions
+     Part 2  The Process — big ideas, shifts, look-fors, success
+     Part 3  The Guide   — the 9-step cycle + EMS templates
+     Part 4  The 18 Meetings — overview + an agenda for every meeting
+     Part 5  Resources   — reproducibles grouped by the meeting they first appear
+   Content is pulled from the same collections the site uses, so it stays in sync.
+   --------------------------------------------------------------------------- */
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FourQuestions from '../../components/FourQuestions.astro';
+import { site, criticalQuestions, formatMeetingDate } from '../../config';
+
+/* --- Guide steps (Part 3) --- */
+const steps = (await getCollection('guide')).sort(
+  (a, b) => a.data.step - b.data.step
+);
+const renderedSteps = await Promise.all(
+  steps.map(async (s) => ({ entry: s, Content: (await render(s)).Content }))
+);
+
+/* --- Meetings (Parts 4 & 5) --- */
+const meetings = (await getCollection('meetings')).sort(
+  (a, b) => a.data.number - b.data.number
+);
+const renderedMeetings = await Promise.all(
+  meetings.map(async (m) => ({ meeting: m, Content: (await render(m)).Content }))
+);
+
+/* --- Resources lookup --- */
+const resources = await getCollection('resources');
+const byId = new Map(resources.map((r) => [r.id, r]));
+const resolve = (ids: string[]) =>
+  ids.map((id) => byId.get(id)).filter((r) => r !== undefined);
+
+/* EMS-created templates are attached to Guide steps, not meeting data. Map each
+   to the meeting where teams complete it (per each template's "how to use"), so
+   Part 5 can show it in the order it's first seen — matching Part 4. */
+const emsByMeeting: Record<number, string[]> = {
+  2: ['ems-team-commitments'],
+  5: ['ems-essential-standards-organizer'],
+  6: ['ems-learning-target-breakdown'],
+  9: ['ems-cfa-planner'],
+  13: ['ems-evidence-protocol'],
+  14: ['ems-teacher-reflection'],
+  15: ['ems-intervention-tool', 'ems-extension-tool'],
+};
+/* All reproducibles first introduced at a meeting: its Solution Tree tools,
+   followed by any EMS template completed there. */
+const introFor = (d: { number: number; resources: string[] }) =>
+  resolve(d.resources).concat(resolve(emsByMeeting[d.number] ?? []));
+
+/* Where a reproducible comes from, as one attribution line. */
+function attribution(r: (typeof resources)[number]) {
+  if (r.data.source === 'EMS-created') {
+    return 'EMS-created template (see The Guide)';
+  }
+  const loc = r.data.bookLocation ? `, ${r.data.bookLocation}` : '';
+  return `${r.data.source} — ${r.data.book}${loc}`;
+}
+
+/* Phase framing reused from the meetings index, for the Part 4 overview. */
+const phases = [
+  { title: 'Phase 1 · Foundations & Culture', blurb: 'Build shared purpose, norms, and an honest picture of where the team is.', range: [1, 4] },
+  { title: 'Phase 2 · What Do We Want Students to Learn?', blurb: 'Identify one essential standard, deconstruct it, and define proficiency.', range: [5, 8] },
+  { title: 'Phase 3 · How Will We Know They Learned It?', blurb: 'Design and quality-check a common formative assessment, then teach with the end in mind.', range: [9, 12] },
+  { title: 'Phase 4 · Response, Reflection & Growth', blurb: 'The turning point — analyze evidence, respond with intervention and extension, reassess, and reflect.', range: [13, 18] },
+];
+
+/* --- Part 2 content (mirrors the Process page) --- */
+const bigIdeas = [
+  { title: 'A focus on learning', body: 'The work centers on what students learn, not simply what teachers teach.' },
+  { title: 'A collaborative culture', body: 'Teams work interdependently and take collective responsibility for every student.' },
+  { title: 'A results orientation', body: 'Teams use evidence of student learning — not adult preference — to improve instruction.' },
+];
+const shifts = [
+  ['Planning activities', 'Clarifying learning'],
+  ['Sharing opinions', 'Analyzing evidence'],
+  ['“My students”', '“Our students”'],
+  ['Intervention as optional help', 'Intervention as a team response'],
+  ['PLT as a meeting', 'PLC as the way we improve learning'],
+];
+const lookFors = [
+  'Meetings are centered on student learning.',
+  'Teachers bring evidence, not just opinions.',
+  'Teams use common assessments.',
+  'Students are grouped by specific learning needs.',
+  'Intervention and extension are planned by the team.',
+  'Teachers learn from one another’s results.',
+  'The team can explain what changed because of the data.',
+  'Students receive support regardless of which teacher they have.',
+  'The work continues in cycles.',
+];
+const success = [
+  'We selected one essential standard.',
+  'We agreed on what students needed to know and do.',
+  'We created clear learning targets.',
+  'We defined proficiency.',
+  'We created or refined a common formative assessment.',
+  'We used the same evidence to analyze student learning.',
+  'We identified students who needed support and students ready for extension.',
+  'We responded as a team.',
+  'We reassessed.',
+  'We reflected on student learning and teacher practice.',
+  'We know what we would improve in our next cycle.',
+];
+
+/* Table of contents entries. */
+const toc = [
+  ['1', 'Home', 'Why this work, and the four critical questions'],
+  ['2', 'The Process', 'What PLC Right really means'],
+  ['3', 'The Guide', 'The 9-step EMS PLT cycle'],
+  ['4', 'The 18 Meetings', 'An agenda for every meeting of the year'],
+  ['5', 'Resources', 'Every reproducible, by the meeting it first appears'],
+];
+---
+
+<BaseLayout title="Printable Staff Guide" bare>
+  <div class="print-guide mx-auto max-w-4xl px-6 py-10">
+    <!-- Screen-only print bar -->
+    <div class="no-print mb-8 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+      <p class="text-sm text-slate-600">
+        This page is formatted for printing. Use <strong>Print</strong> and choose
+        <strong>“Save as PDF”</strong> to create a handout, or print it directly.
+      </p>
+      <button
+        type="button"
+        onclick="window.print()"
+        class="inline-flex items-center gap-1.5 rounded-lg bg-brand-800 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-900"
+      >
+        <span aria-hidden="true">🖨</span> Print / Save as PDF
+      </button>
+    </div>
+
+    <!-- ===================== COVER ===================== -->
+    <section class="print-cover flex min-h-[85vh] flex-col justify-center border-b border-slate-200 pb-16 text-center">
+      <img src="/tiger-logo.png" alt="" class="mx-auto h-24 w-auto" aria-hidden="true" />
+      <p class="mt-8 text-sm font-semibold uppercase tracking-widest text-accent-600">
+        {site.schoolName} · Professional Learning Teams
+      </p>
+      <h1 class="mt-4 text-4xl font-bold tracking-tight text-brand-800 md:text-5xl">
+        {site.shortName}
+      </h1>
+      <p class="mt-3 text-xl text-slate-600">{site.tagline}</p>
+      <p class="mx-auto mt-8 max-w-xl text-slate-600">
+        A complete staff guide: the process, the 9-step cycle, an agenda for every
+        one of the 18 meetings, and every reproducible you'll need — in the order
+        you'll use them.
+      </p>
+      <p class="mt-10 text-sm text-slate-500">{site.districtName}</p>
+    </section>
+
+    <!-- ===================== TABLE OF CONTENTS ===================== -->
+    <section class="print-page py-10">
+      <h2 class="text-2xl font-bold text-brand-800">Contents</h2>
+      <ol class="mt-6 space-y-3">
+        {
+          toc.map(([n, label, desc]) => (
+            <li class="flex gap-4 border-b border-slate-100 pb-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand-800 text-sm font-bold text-white">
+                {n}
+              </span>
+              <div>
+                <p class="font-semibold text-brand-800">Part {n}: {label}</p>
+                <p class="text-sm text-slate-600">{desc}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <!-- ===================== PART 1 · HOME ===================== -->
+    <section class="print-page pt-10">
+      <p class="part-eyebrow">Part 1</p>
+      <h2 class="part-title">Home</h2>
+
+      <p class="mt-4 text-lg text-slate-700">
+        We became educators to make sure every student learns. That doesn't happen
+        behind one closed door. Moving from PLC Lite to PLC Right is hard work — but
+        it's the work that raises how much every student learns and sharpens our
+        craft as teachers. This guide gives your team the how: what to do, when to
+        do it, and the tools for each step, all year long.
+      </p>
+
+      <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6">
+        <h3 class="text-xl font-bold text-brand-800">
+          A PLC is not a meeting. It's how we work together to ensure students learn.
+        </h3>
+        <p class="mt-3 text-slate-600">
+          PLT Lite is meetings, logistics, and activity-sharing. PLC Right is a
+          continuous cycle: clarify what students must learn, check whether they
+          learned it, respond when they don't, and extend when they already have —
+          improving our own practice along the way. This year we keep it simple:
+          complete <strong class="text-brand-800">one authentic learning cycle</strong>
+          and build the habits that last.
+        </p>
+      </div>
+
+      <h3 class="mt-10 text-xl font-bold text-brand-800">The four critical questions</h3>
+      <p class="mt-1 text-slate-600">They guide every meeting, assessment, and decision.</p>
+      <div class="mt-5"><FourQuestions /></div>
+    </section>
+
+    <!-- ===================== PART 2 · THE PROCESS ===================== -->
+    <section class="print-page pt-10">
+      <p class="part-eyebrow">Part 2</p>
+      <h2 class="part-title">The Process</h2>
+      <p class="mt-4 text-slate-600">
+        Solution Tree spends relatively little time on meetings and a great deal of
+        time on culture. The distinction is between a school that <em>does</em> PLCs
+        and a school that <em>is</em> a PLC — one that makes collaborative decisions
+        based on evidence of student learning.
+      </p>
+
+      <h3 class="mt-10 text-xl font-bold text-brand-800">The three big ideas</h3>
+      <div class="mt-4 grid gap-4 sm:grid-cols-3">
+        {
+          bigIdeas.map((idea, i) => (
+            <div class="rounded-xl border border-slate-200 bg-white p-5">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-accent-500 text-sm font-bold text-white">
+                {i + 1}
+              </span>
+              <h4 class="mt-3 font-semibold text-brand-800">{idea.title}</h4>
+              <p class="mt-1 text-sm text-slate-600">{idea.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <h3 class="mt-10 text-xl font-bold text-brand-800">
+        The shift: from PLT Lite to PLC Right
+      </h3>
+      <div class="mt-4 overflow-hidden rounded-xl border border-slate-200">
+        <div class="grid grid-cols-2 bg-brand-800 text-sm font-semibold text-white">
+          <div class="px-4 py-2">We are moving away from…</div>
+          <div class="px-4 py-2">…and toward</div>
+        </div>
+        {
+          shifts.map(([from, to], i) => (
+            <div class:list={['grid grid-cols-2 text-sm', i % 2 === 0 ? 'bg-white' : 'bg-slate-50']}>
+              <div class="border-t border-slate-200 px-4 py-2 text-slate-600">{from}</div>
+              <div class="border-t border-l border-slate-200 px-4 py-2 font-medium text-brand-800">{to}</div>
+            </div>
+          ))
+        }
+      </div>
+
+      <h3 class="mt-10 text-xl font-bold text-brand-800">PLC Right look-fors</h3>
+      <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+        {
+          lookFors.map((item) => (
+            <li class="flex gap-2 text-sm text-slate-700">
+              <span aria-hidden="true" class="text-brand-600">✓</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <h3 class="mt-10 text-xl font-bold text-brand-800">
+        What success looks like by the end of the year
+      </h3>
+      <p class="mt-2 text-slate-600">By June, each PLT should be able to say:</p>
+      <ul class="mt-4 grid gap-2 sm:grid-cols-2">
+        {
+          success.map((item) => (
+            <li class="flex items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-700">
+              <span aria-hidden="true" class="mt-0.5 text-brand-600">✓</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-8 rounded-xl bg-brand-800 p-6 text-white">
+        <h3 class="text-lg font-bold">The goal for this year</h3>
+        <p class="mt-2 text-brand-50">
+          The goal is not to look like a perfect PLC by the end of the year. It is to
+          complete one authentic cycle, learn from it, and prove to ourselves that the
+          hard work shows up in what our students learn. Everything before
+          <strong>Meeting 13</strong> builds clarity; everything after it is where PLC
+          Right really begins.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== PART 3 · THE GUIDE ===================== -->
+    <section class="print-page pt-10">
+      <p class="part-eyebrow">Part 3</p>
+      <h2 class="part-title">The Guide</h2>
+      <p class="mt-4 text-slate-600">
+        The EMS PLT cycle in nine steps. Each step includes the team actions and,
+        where relevant, an EMS reproducible template you can complete together.
+      </p>
+
+      <div class="mt-8 space-y-8">
+        {
+          renderedSteps.map(({ entry, Content }) => (
+            <section class="guide-step rounded-2xl border border-slate-200 bg-white p-6">
+              <div class="flex items-start gap-3">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-800 text-lg font-bold text-white">
+                  {entry.data.step}
+                </span>
+                <div>
+                  <h3 class="text-xl font-bold text-brand-800">{entry.data.title}</h3>
+                  <p class="mt-1 text-sm text-slate-600">{entry.data.summary}</p>
+                </div>
+              </div>
+              {entry.data.plcQuestion && (
+                <p class="mt-3 inline-block rounded-lg bg-accent-50 px-3 py-1 text-sm font-semibold text-accent-600 ring-1 ring-accent-300">
+                  {entry.data.plcQuestion}
+                </p>
+              )}
+              <div class="rich-text mt-4">
+                <Content />
+              </div>
+            </section>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- ===================== PART 4 · THE 18 MEETINGS ===================== -->
+    <section class="print-page pt-10">
+      <p class="part-eyebrow">Part 4</p>
+      <h2 class="part-title">The 18 Meetings</h2>
+
+      <!-- Overview -->
+      <p class="mt-4 text-slate-600">
+        One authentic PLC learning cycle across 18 meetings — 45 minutes, every other
+        Wednesday. Deliberately paced, with buffer meetings (4, 8, 12, 16) built in
+        for a real cultural shift. The year moves through four phases:
+      </p>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2">
+        {
+          phases.map((p) => (
+            <div class="rounded-xl border-l-4 border-accent-400 bg-white p-4">
+              <p class="font-semibold text-brand-800">{p.title}</p>
+              <p class="mt-1 text-sm text-slate-600">{p.blurb}</p>
+              <p class="mt-1 text-xs font-medium text-slate-500">
+                Meetings {p.range[0]}–{p.range[1]}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Year at a glance — dated deliverables -->
+      <h3 class="mt-10 text-xl font-bold text-brand-800">Year at a glance</h3>
+      <p class="mt-1 text-sm text-slate-600">
+        Suggested dates for the 2026–27 cycle and the product each team completes by
+        that meeting. Meetings are every other Wednesday, 45 minutes.
+      </p>
+      <table class="year-glance mt-4 w-full border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-800 text-left text-white">
+            <th class="border border-brand-700 px-3 py-2 font-semibold">#</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Date</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Meeting</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Completed by this date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            renderedMeetings.map(({ meeting }, i) => {
+              const d = meeting.data;
+              return (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                  <td class="border border-slate-300 px-3 py-2 font-semibold text-brand-800">{d.number}</td>
+                  <td class="border border-slate-300 px-3 py-2 whitespace-nowrap font-medium text-slate-800">
+                    {formatMeetingDate(d.number)}
+                  </td>
+                  <td class="border border-slate-300 px-3 py-2">
+                    {d.title}
+                    {d.buffer && <span class="ml-1 text-xs text-slate-500">(buffer)</span>}
+                    {d.turningPoint && <span class="ml-1 text-xs text-accent-600">(turning point)</span>}
+                  </td>
+                  <td class="border border-slate-300 px-3 py-2 text-slate-700">{d.product}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+
+      <!-- One agenda per meeting -->
+      <div class="mt-10 space-y-8">
+        {
+          renderedMeetings.map(({ meeting, Content }) => {
+            const d = meeting.data;
+            const intro = introFor(d);
+            const revisit = resolve(d.revisit);
+            return (
+              <section class="meeting-block rounded-2xl border border-slate-200 bg-white p-6">
+                <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide">
+                  <span class="text-accent-600">Meeting {d.number} of 18</span>
+                  {formatMeetingDate(d.number) && (
+                    <span class="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
+                      {formatMeetingDate(d.number)}
+                    </span>
+                  )}
+                  {d.buffer && (
+                    <span class="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
+                      Buffer / reset
+                    </span>
+                  )}
+                  {d.turningPoint && (
+                    <span class="rounded-full bg-accent-500 px-2 py-0.5 text-white">
+                      The turning point
+                    </span>
+                  )}
+                </div>
+                <h3 class="mt-2 text-xl font-bold text-brand-800">{d.title}</h3>
+                <p class="mt-1 text-slate-600">{d.focus}</p>
+
+                <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-lg border border-brand-200 bg-brand-50 p-3">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-brand-700">Focus question</p>
+                    <p class="mt-1 text-sm font-medium text-brand-900">{d.plcQuestion}</p>
+                  </div>
+                  <div class="rounded-lg border border-accent-300 bg-accent-50 p-3">
+                    <p class="text-xs font-semibold uppercase tracking-wide text-accent-600">Product / outcome</p>
+                    <p class="mt-1 text-sm text-slate-800">{d.product}</p>
+                  </div>
+                </div>
+
+                {(intro.length > 0 || revisit.length > 0) && (
+                  <div class="mt-3 rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm">
+                    {intro.length > 0 && (
+                      <p class="text-slate-700">
+                        <span class="font-semibold text-slate-800">Reproducibles introduced:</span>{' '}
+                        {intro.map((r) => r.data.title).join('; ')}
+                        <span class="text-slate-500"> (see Part 5)</span>
+                      </p>
+                    )}
+                    {revisit.length > 0 && (
+                      <p class="mt-1 text-slate-600">
+                        <span class="font-semibold text-slate-700">Revisit:</span>{' '}
+                        {revisit.map((r) => r.data.title).join('; ')}
+                      </p>
+                    )}
+                  </div>
+                )}
+
+                <div class="rich-text mt-4">
+                  <Content />
+                </div>
+              </section>
+            );
+          })
+        }
+      </div>
+    </section>
+
+    <!-- ===================== PART 5 · RESOURCES ===================== -->
+    <section class="print-page pt-10">
+      <p class="part-eyebrow">Part 5</p>
+      <h2 class="part-title">Resources</h2>
+      <p class="mt-4 text-slate-600">
+        Every reproducible you'll use this year, grouped by the meeting where it is
+        first introduced — the same order as Part 4. Each entry names where it comes
+        from so you can find the original. Solution Tree reproducibles are free at
+        <strong>solutiontree.com</strong>; EMS-created templates are shown here at the
+        meeting where you'll complete them and reproduced in full in Part 3 (The Guide).
+      </p>
+
+      <div class="mt-8 space-y-6">
+        {
+          renderedMeetings
+            .map(({ meeting }) => ({ d: meeting.data, intro: introFor(meeting.data) }))
+            .filter(({ intro }) => intro.length > 0)
+            .map(({ d, intro }) => (
+              <section class="resource-group">
+                <h3 class="border-b-2 border-brand-800 pb-1 text-lg font-bold text-brand-800">
+                  Meeting {d.number}: {d.title}
+                </h3>
+                <div class="mt-3 space-y-4">
+                  {intro.map((r) => (
+                    <div class="rounded-xl border border-slate-200 bg-white p-4">
+                      <div class="flex flex-wrap items-baseline justify-between gap-2">
+                        <h4 class="font-semibold text-brand-800">{r.data.title}</h4>
+                        {r.data.required && (
+                          <span class="rounded-full bg-brand-100 px-2 py-0.5 text-xs font-semibold text-brand-700">
+                            Core
+                          </span>
+                        )}
+                      </div>
+                      <p class="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
+                        Source: {attribution(r)}
+                      </p>
+                      <p class="mt-2 text-sm text-slate-700">{r.data.description}</p>
+                      <p class="mt-2 text-sm text-slate-600">
+                        <span class="font-semibold text-slate-800">How to use:</span> {r.data.howToUse}
+                      </p>
+                      <p class="mt-2 break-all text-xs text-slate-500">
+                        {r.data.source === 'EMS-created'
+                          ? 'Find it in Part 3 (The Guide) of this booklet or on the site.'
+                          : r.data.url}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))
+        }
+      </div>
+
+      <p class="mt-10 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
+        {site.shortName} · {site.schoolName} · {site.districtName}
+      </p>
+    </section>
+  </div>
+</BaseLayout>

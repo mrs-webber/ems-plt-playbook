@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FourQuestions from '../../components/FourQuestions.astro';
+import { formatMeetingDate } from '../../config';
 
 export async function getStaticPaths() {
   const meetings = await getCollection('meetings');
@@ -19,6 +20,7 @@ export async function getStaticPaths() {
 const { meeting, prev, next } = Astro.props;
 const { Content } = await render(meeting);
 const data = meeting.data;
+const meetingDate = formatMeetingDate(data.number);
 
 const resources = await getCollection('resources');
 const byId = new Map(resources.map((r) => [r.id, r]));
@@ -48,6 +50,13 @@ const revisitResources = data.revisit
         <p class="text-sm font-semibold uppercase tracking-wide text-accent-300">
           Meeting {data.number} of 18
         </p>
+        {
+          meetingDate && (
+            <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold ring-1 ring-white/20">
+              {meetingDate}
+            </span>
+          )
+        }
         {
           data.buffer && (
             <span class="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold ring-1 ring-white/20">
