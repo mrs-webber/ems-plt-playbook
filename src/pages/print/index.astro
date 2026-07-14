@@ -12,7 +12,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FourQuestions from '../../components/FourQuestions.astro';
-import { site, criticalQuestions } from '../../config';
+import { site, criticalQuestions, formatMeetingDate } from '../../config';
 
 /* --- Guide steps (Part 3) --- */
 const steps = (await getCollection('guide')).sort(
@@ -349,8 +349,46 @@ const toc = [
         }
       </div>
 
+      <!-- Year at a glance — dated deliverables -->
+      <h3 class="mt-10 text-xl font-bold text-brand-800">Year at a glance</h3>
+      <p class="mt-1 text-sm text-slate-600">
+        Suggested dates for the 2026–27 cycle and the product each team completes by
+        that meeting. Meetings are every other Wednesday, 45 minutes.
+      </p>
+      <table class="year-glance mt-4 w-full border-collapse text-sm">
+        <thead>
+          <tr class="bg-brand-800 text-left text-white">
+            <th class="border border-brand-700 px-3 py-2 font-semibold">#</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Date</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Meeting</th>
+            <th class="border border-brand-700 px-3 py-2 font-semibold">Completed by this date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            renderedMeetings.map(({ meeting }, i) => {
+              const d = meeting.data;
+              return (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
+                  <td class="border border-slate-300 px-3 py-2 font-semibold text-brand-800">{d.number}</td>
+                  <td class="border border-slate-300 px-3 py-2 whitespace-nowrap font-medium text-slate-800">
+                    {formatMeetingDate(d.number)}
+                  </td>
+                  <td class="border border-slate-300 px-3 py-2">
+                    {d.title}
+                    {d.buffer && <span class="ml-1 text-xs text-slate-500">(buffer)</span>}
+                    {d.turningPoint && <span class="ml-1 text-xs text-accent-600">(turning point)</span>}
+                  </td>
+                  <td class="border border-slate-300 px-3 py-2 text-slate-700">{d.product}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+
       <!-- One agenda per meeting -->
-      <div class="mt-8 space-y-8">
+      <div class="mt-10 space-y-8">
         {
           renderedMeetings.map(({ meeting, Content }) => {
             const d = meeting.data;
@@ -360,6 +398,11 @@ const toc = [
               <section class="meeting-block rounded-2xl border border-slate-200 bg-white p-6">
                 <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide">
                   <span class="text-accent-600">Meeting {d.number} of 18</span>
+                  {formatMeetingDate(d.number) && (
+                    <span class="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
+                      {formatMeetingDate(d.number)}
+                    </span>
+                  )}
                   {d.buffer && (
                     <span class="rounded-full bg-slate-100 px-2 py-0.5 text-slate-600">
                       Buffer / reset
