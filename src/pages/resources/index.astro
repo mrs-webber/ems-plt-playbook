@@ -29,12 +29,23 @@ const categoryOrder = [
   'Optional / As Needed',
 ];
 
+// The EMS editable templates map to Guide steps (their link is /guide/#step-N),
+// so order that category by step (1–8) instead of alphabetically.
+const stepNum = (r: (typeof resources)[number]) => {
+  const match = r.data.url.match(/step-(\d+)/);
+  return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+};
+
 const byCategory = categoryOrder
   .map((cat) => ({
     category: cat,
     items: resources
       .filter((r) => r.data.category === cat)
-      .sort((a, b) => a.data.title.localeCompare(b.data.title)),
+      .sort((a, b) =>
+        cat === 'EMS Editable Templates'
+          ? stepNum(a) - stepNum(b)
+          : a.data.title.localeCompare(b.data.title)
+      ),
   }))
   .filter((g) => g.items.length > 0);
 
