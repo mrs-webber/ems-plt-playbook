@@ -2,6 +2,9 @@
 dist/
 .output/
 
+# generated printable guide (rebuild with `npm run pdf`)
+EMS-PLT-Playbook-Staff-Guide.pdf
+
 # dependencies
 node_modules/
 

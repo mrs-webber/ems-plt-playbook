@@ -187,3 +187,55 @@ body {
     border: none !important;
   }
 }
+
+/* =========================================================================
+   Printable staff guide (/print) — page breaks, cover, and part headings.
+   Styled to read well on screen and print cleanly to PDF.
+   ========================================================================= */
+.print-guide .part-eyebrow {
+  @apply text-sm font-semibold uppercase tracking-widest text-accent-600;
+}
+.print-guide .part-title {
+  @apply mt-1 text-3xl font-bold tracking-tight text-brand-800 md:text-4xl;
+}
+
+@media print {
+  /* Reasonable print margins with a running footer space. */
+  @page {
+    margin: 16mm 14mm;
+  }
+  .print-guide {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  /* Each part (and the cover / contents) starts on a fresh page. */
+  .print-guide .print-page,
+  .print-guide .print-cover {
+    break-before: page;
+    page-break-before: always;
+  }
+  .print-guide .print-cover {
+    break-before: auto;
+    page-break-before: auto;
+    min-height: 0 !important;
+  }
+  /* Keep individual steps, meetings, and resource entries from splitting
+     awkwardly across a page break where possible. */
+  .print-guide .guide-step,
+  .print-guide .meeting-block,
+  .print-guide .resource-group {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .print-guide h2,
+  .print-guide h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  /* Flatten cards to ink-light surfaces for cleaner printing. */
+  .print-guide .bg-brand-800 {
+    background: #241a1b !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

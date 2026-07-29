@@ -7,9 +7,11 @@ import { site } from '../config';
 interface Props {
   title?: string;
   description?: string;
+  /** Omit the site Header/Footer — used by the printable guide. */
+  bare?: boolean;
 }
 
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, bare = false } = Astro.props;
 const pageTitle = title ? `${title} · ${site.shortName}` : `${site.shortName} · ${site.tagline}`;
 ---
 
@@ -29,10 +31,18 @@ const pageTitle = title ? `${title} · ${site.shortName}` : `${site.shortName} �
   </head>
   <body class="flex min-h-screen flex-col">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <Header />
+    {!bare && <Header />}
     <main id="main-content" tabindex="-1" class="flex-1">
       <slot />
     </main>
-    <Footer />
+    {!bare && <Footer />}
+
+    <!--
+      Print buttons are wired up in /public/print.js (an external, same-origin
+      file) rather than an inline handler, so they work under a strict
+      Content-Security-Policy (script-src 'self'). is:inline keeps Astro from
+      bundling/inlining it. Any element with data-print-trigger prints.
+    -->
+    <script is:inline defer src="/print.js"></script>
   </body>
 </html>
