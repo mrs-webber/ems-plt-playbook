@@ -81,6 +81,7 @@ const videos = [
       { title: 'Collaborative Teams in PLCs', by: 'Solution Tree', id: 'M4Sv73zfCoY' },
       { title: 'Getting Clear About Learning Outcomes', by: 'Mike Mattos', id: 'SL_50Sf_7eY' },
       { title: 'Using Common Formative Assessments', by: 'Ken Williams', id: '9p3Fp5rBdz8' },
+      { title: 'Learning Extensions in the Classroom', by: 'Coffee Shop Classroom', id: '1SZmDY-XOfA', thirdParty: true },
     ],
   },
   {
@@ -176,8 +177,9 @@ const videos = [
                       {v.title}
                     </span>
                     <span class="text-sm text-slate-500">
-                      {v.by === 'Solution Tree' ? '' : `${v.by} · `}Solution Tree ·
-                      YouTube ↗
+                      {v.thirdParty
+                        ? `${v.by} (third-party) · YouTube ↗`
+                        : `${v.by === 'Solution Tree' ? '' : `${v.by} · `}Solution Tree · YouTube ↗`}
                     </span>
                   </span>
                 </a>
