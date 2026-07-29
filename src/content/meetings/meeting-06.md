@@ -5,7 +5,7 @@ focus: Clarifying what students must know and be able to do.
 plcQuestion: What exactly do we expect students to learn?
 criticalQuestions: [1]
 product: Draft learning targets for the essential standard.
-resources: [standards-unpacking]
+resources: [standards-unpacking, ems-learning-target-breakdown]
 revisit: [deconstructing-standard]
 buffer: false
 turningPoint: false

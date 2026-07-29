@@ -5,7 +5,7 @@ focus: 'PLC Questions 3 and 4.'
 plcQuestion: What will we do for students who have not learned it — and for those who already have?
 criticalQuestions: [3, 4]
 product: Intervention plan, extension plan, and reassessment plan.
-resources: [intervention-plan, tiered-task-card]
+resources: [intervention-plan, tiered-task-card, ems-intervention-tool, ems-extension-tool]
 revisit: []
 buffer: false
 turningPoint: false

@@ -5,7 +5,7 @@ focus: Creating the conditions for productive collaboration.
 plcQuestion: How will we work together in a way that keeps student learning at the center?
 criticalQuestions: []
 product: Completed team norms and team roles.
-resources: [developing-team-norms, establishing-team-roles]
+resources: [developing-team-norms, establishing-team-roles, ems-team-commitments]
 revisit: []
 buffer: false
 turningPoint: false

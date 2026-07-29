@@ -5,7 +5,7 @@ focus: Using results to improve adult practice.
 plcQuestion: What did we learn from the results?
 criticalQuestions: [2]
 product: Teacher learning reflection.
-resources: [teacher-self-reflection]
+resources: [teacher-self-reflection, ems-teacher-reflection]
 revisit: [analyzing-results-protocol]
 buffer: false
 turningPoint: false

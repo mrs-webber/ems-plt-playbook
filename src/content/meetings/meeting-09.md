@@ -5,7 +5,7 @@ focus: 'PLC Question 2: How will we know if students learned it?'
 plcQuestion: How will we know if students learned it?
 criticalQuestions: [2]
 product: Draft common formative assessment.
-resources: [building-cfa]
+resources: [building-cfa, ems-cfa-planner]
 revisit: []
 buffer: false
 turningPoint: false

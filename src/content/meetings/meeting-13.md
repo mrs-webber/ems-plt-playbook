@@ -5,7 +5,7 @@ focus: Analyzing evidence of student learning.
 plcQuestion: How did students do, target by target?
 criticalQuestions: [2]
 product: Student groups by learning target.
-resources: [analyzing-results-protocol, item-analysis]
+resources: [analyzing-results-protocol, item-analysis, ems-evidence-protocol]
 revisit: []
 buffer: false
 turningPoint: true
