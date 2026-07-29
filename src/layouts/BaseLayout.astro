@@ -36,5 +36,13 @@ const pageTitle = title ? `${title} Â· ${site.shortName}` : `${site.shortName} Â
       <slot />
     </main>
     {!bare && <Footer />}
+
+    <!--
+      Print buttons are wired up in /public/print.js (an external, same-origin
+      file) rather than an inline handler, so they work under a strict
+      Content-Security-Policy (script-src 'self'). is:inline keeps Astro from
+      bundling/inlining it. Any element with data-print-trigger prints.
+    -->
+    <script is:inline defer src="/print.js"></script>
   </body>
 </html>
