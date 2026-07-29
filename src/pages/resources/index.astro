@@ -63,10 +63,6 @@ const byCategory = categoryOrder
   }))
   .filter((g) => g.items.length > 0);
 
-const requiredPacket = resources
-  .filter((r) => r.data.required)
-  .sort((a, b) => (usedIn.get(a.id)?.[0] ?? 99) - (usedIn.get(b.id)?.[0] ?? 99));
-
 // Which Guide step(s) and meetings each category maps to — shown under the
 // category header so the Guide ↔ Meetings ↔ Resources alignment is explicit.
 const categoryMeta: Record<string, string> = {
@@ -101,8 +97,10 @@ const categoryMeta: Record<string, string> = {
         <a href="/guide/" class="font-medium text-brand-700 underline">9-step Guide</a>
         and listed in the order you first reach them across the
         <a href="/meetings/" class="font-medium text-brand-700 underline">18 meetings</a>.
-        Each card shows the meeting(s) where it's used. Begin with the start-here
-        packet below; reach for the rest as needed.
+        Each card shows the meeting(s) where it's used. New to this? You don't
+        need every tool — the ones marked
+        <span class="font-semibold text-brand-700">Start here</span> are the core
+        set that gives you the full cycle; reach for the rest as needed.
       </p>
     </div>
 
@@ -126,40 +124,6 @@ const categoryMeta: Record<string, string> = {
         <code class="rounded bg-amber-100 px-1">src/data/resources.json</code>.
       </p>
     </div>
-
-    <!-- Start-here packet -->
-    <section class="mt-10">
-      <h2 class="text-2xl font-bold text-brand-800">
-        Start here: your first-year packet
-      </h2>
-      <p class="mt-2 max-w-3xl text-slate-600">
-        For teams that want to be led step by step, begin with only these — the
-        full cycle in one packet, in the order you use them. The tag on each shows
-        the meeting where you first pick it up.
-      </p>
-      <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          requiredPacket.map((r) => (
-            <li>
-              <a
-                href={`#${r.id}`}
-                class="flex h-full items-start gap-3 rounded-xl border border-brand-200 bg-white p-4 shadow-sm transition-colors hover:border-brand-400 hover:bg-brand-50"
-              >
-                <span class="shrink-0 rounded-md bg-brand-800 px-2 py-1 text-[11px] font-semibold text-white">
-                  Mtg {usedIn.get(r.id)?.[0]}
-                </span>
-                <span>
-                  <span class="block text-sm font-semibold text-brand-800">
-                    {r.data.title}
-                  </span>
-                  <span class="text-xs text-slate-500">{r.data.source}</span>
-                </span>
-              </a>
-            </li>
-          ))
-        }
-      </ol>
-    </section>
 
     <!-- All resources by category -->
     {
