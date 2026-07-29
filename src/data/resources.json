@@ -329,9 +329,9 @@
     "source": "Solution Tree",
     "category": "Optional / As Needed",
     "required": false,
-    "url": "https://www.solutiontree.com/free-resources/plcbooks/hhet",
-    "linkLabel": "Find on Solution Tree",
-    "book": "The Handbook for Highly Effective Teams in a PLC at Work",
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_LBD3C/glossaryofkeytermsandconcepts.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Learning by Doing, 3rd Edition",
     "description": "Shared definitions for terms like essential learning, common formative assessment, intervention, extension, team norms, and continuous improvement.",
     "howToUse": "Keep in the appendix and reference whenever teams are still building shared vocabulary."
   },
