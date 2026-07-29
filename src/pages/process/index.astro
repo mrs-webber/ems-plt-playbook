@@ -76,6 +76,14 @@ const videos = [
     ],
   },
   {
+    group: 'Working through the steps',
+    items: [
+      { title: 'Collaborative Teams in PLCs', by: 'Solution Tree', id: 'M4Sv73zfCoY' },
+      { title: 'Getting Clear About Learning Outcomes', by: 'Mike Mattos', id: 'SL_50Sf_7eY' },
+      { title: 'Using Common Formative Assessments', by: 'Ken Williams', id: '9p3Fp5rBdz8' },
+    ],
+  },
+  {
     group: 'Responding when students don’t learn',
     items: [
       { title: 'Simplifying Response to Intervention', by: 'Mike Mattos', id: 'NQL89jZs5LA' },
@@ -168,7 +176,8 @@ const videos = [
                       {v.title}
                     </span>
                     <span class="text-sm text-slate-500">
-                      {v.by} · Solution Tree · YouTube ↗
+                      {v.by === 'Solution Tree' ? '' : `${v.by} · `}Solution Tree ·
+                      YouTube ↗
                     </span>
                   </span>
                 </a>
