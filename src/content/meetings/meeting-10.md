@@ -6,7 +6,7 @@ plcQuestion: Will this assessment give us the evidence we need?
 criticalQuestions: [2]
 product: Final CFA, scoring plan, and assessment timeline.
 resources: [acid-test, actionable-data-tool]
-revisit: []
+revisit: [ems-cfa-planner]
 buffer: false
 turningPoint: false
 ---
