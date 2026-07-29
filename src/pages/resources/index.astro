@@ -66,6 +66,19 @@ const byCategory = categoryOrder
 const requiredPacket = resources
   .filter((r) => r.data.required)
   .sort((a, b) => (usedIn.get(a.id)?.[0] ?? 99) - (usedIn.get(b.id)?.[0] ?? 99));
+
+// Which Guide step(s) and meetings each category maps to — shown under the
+// category header so the Guide ↔ Meetings ↔ Resources alignment is explicit.
+const categoryMeta: Record<string, string> = {
+  'Culture & Foundations': 'Guide Step 1 · Meetings 1–4',
+  'Essential Standards & Learning Targets': 'Guide Steps 2–3 · Meetings 5–8',
+  'Common Formative Assessment': 'Guide Step 4 · Meetings 9–12',
+  'Data & Evidence': 'Guide Step 5 · Meetings 13–17',
+  'Intervention & Extension': 'Guide Steps 6–7 · Meetings 15–16',
+  'Reflection & Monitoring': 'Guide Steps 8–9 · Meetings 14 & 18',
+  'EMS Editable Templates': 'Editable versions of the Guide’s Step 1–8 templates',
+  'Optional / As Needed': 'Layer in when your team is ready',
+};
 ---
 
 <BaseLayout
@@ -75,13 +88,27 @@ const requiredPacket = resources
   <PageHeader
     eyebrow="Reproducibles & Tools"
     title="Resources"
-    subtitle="Every tool a team needs for the year, organized so PLTs never feel like PLC is just a packet of forms. Start with the required packet, and reach for the rest as needed."
+    subtitle="Every tool a team needs for the year, organized so PLTs never feel like PLC is just a packet of forms. Begin with the start-here packet, then reach for the rest as needed."
   />
 
   <div class="mx-auto max-w-6xl px-4 py-12">
+    <!-- How this page works -->
+    <div class="rounded-2xl border border-brand-200 bg-brand-50 p-5 md:p-6">
+      <h2 class="font-bold text-brand-800">How this page works</h2>
+      <p class="mt-2 text-sm text-slate-700">
+        These are the reproducibles teams fill out — the tools you actually use.
+        They're grouped by stage of the
+        <a href="/guide/" class="font-medium text-brand-700 underline">9-step Guide</a>
+        and listed in the order you first reach them across the
+        <a href="/meetings/" class="font-medium text-brand-700 underline">18 meetings</a>.
+        Each card shows the meeting(s) where it's used. Begin with the start-here
+        packet below; reach for the rest as needed.
+      </p>
+    </div>
+
     <!-- Sourcing note -->
     <div
-      class="rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900"
+      class="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900"
     >
       <p>
         <strong>About the links.</strong> Most cards link straight to the
@@ -100,26 +127,26 @@ const requiredPacket = resources
       </p>
     </div>
 
-    <!-- Required packet -->
+    <!-- Start-here packet -->
     <section class="mt-10">
       <h2 class="text-2xl font-bold text-brand-800">
-        The required first-year packet
+        Start here: your first-year packet
       </h2>
       <p class="mt-2 max-w-3xl text-slate-600">
-        For teams that want to be led step by step, start with only these. They
-        give a team the full cycle: culture → clarity → assessment → evidence →
-        intervention/extension → reflection.
+        For teams that want to be led step by step, begin with only these — the
+        full cycle in one packet, in the order you use them. The tag on each shows
+        the meeting where you first pick it up.
       </p>
       <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {
-          requiredPacket.map((r, i) => (
+          requiredPacket.map((r) => (
             <li>
               <a
                 href={`#${r.id}`}
                 class="flex h-full items-start gap-3 rounded-xl border border-brand-200 bg-white p-4 shadow-sm transition-colors hover:border-brand-400 hover:bg-brand-50"
               >
-                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-800 text-xs font-bold text-white">
-                  {i + 1}
+                <span class="shrink-0 rounded-md bg-brand-800 px-2 py-1 text-[11px] font-semibold text-white">
+                  Mtg {usedIn.get(r.id)?.[0]}
                 </span>
                 <span>
                   <span class="block text-sm font-semibold text-brand-800">
@@ -138,9 +165,14 @@ const requiredPacket = resources
     {
       byCategory.map((group) => (
         <section class="mt-14">
-          <h2 class="border-l-4 border-accent-400 pl-4 text-xl font-bold text-brand-800">
-            {group.category}
-          </h2>
+          <div class="border-l-4 border-accent-400 pl-4">
+            <h2 class="text-xl font-bold text-brand-800">{group.category}</h2>
+            {categoryMeta[group.category] && (
+              <p class="mt-0.5 text-sm text-slate-500">
+                {categoryMeta[group.category]}
+              </p>
+            )}
+          </div>
           <div class="mt-5 grid gap-4 md:grid-cols-2">
             {group.items.map((r) => (
               <ResourceCard resource={r} usedIn={usedIn.get(r.id) ?? []} />
