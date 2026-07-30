@@ -202,6 +202,16 @@ const meetingResources = [
                       {entry.data.howToUse}
                     </p>
                     <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                      {entry.data.pdf && (
+                        <a
+                          href={entry.data.pdf}
+                          download
+                          aria-label={`Download the ${entry.data.title} PDF`}
+                          class="inline-flex items-center gap-1 rounded-md border border-brand-700 bg-brand-700 px-2.5 py-1 text-xs font-semibold text-white transition-colors hover:bg-brand-800"
+                        >
+                          <span aria-hidden="true">⬇</span> Download PDF
+                        </a>
+                      )}
                       <a
                         href={entry.data.url}
                         target={external ? '_blank' : undefined}
