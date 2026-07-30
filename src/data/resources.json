@@ -344,6 +344,7 @@
     "url": "/guide/#step-1",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-team-commitments.pdf",
+    "word": "/templates/ems-team-commitments.docx",
     "description": "EMS-ready team commitments, roles, and meeting logistics — an editable equivalent inspired by the PLC at Work process.",
     "howToUse": "Complete in Step 1 / Meeting 2 as your team's foundation document."
   },
@@ -356,6 +357,7 @@
     "url": "/guide/#step-2",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-essential-standards-organizer.pdf",
+    "word": "/templates/ems-essential-standards-organizer.docx",
     "description": "Organizes each essential standard into what students must know, do, the academic vocabulary, and what proficiency looks like.",
     "howToUse": "Complete in Step 2 / Meeting 5 as you identify your essential standard."
   },
@@ -368,6 +370,7 @@
     "url": "/guide/#step-3",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-learning-target-breakdown.pdf",
+    "word": "/templates/ems-learning-target-breakdown.docx",
     "description": "Breaks an essential standard into learning targets with student-friendly \"I can\" statements and how each will be taught and checked.",
     "howToUse": "Complete in Step 3 / Meeting 6."
   },
@@ -380,6 +383,7 @@
     "url": "/guide/#step-4",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-cfa-planner.pdf",
+    "word": "/templates/ems-cfa-planner.docx",
     "description": "Aligns each assessment item to a learning target, rigor level, and the agreed proficient response, with data-review dates.",
     "howToUse": "Complete in Step 4 / Meetings 9–10."
   },
@@ -392,6 +396,7 @@
     "url": "/guide/#step-5",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-evidence-protocol.pdf",
+    "word": "/templates/ems-evidence-protocol.docx",
     "description": "Sorts students by learning target into proficient, not-yet-proficient, and ready-for-extension, with patterns and notes.",
     "howToUse": "Complete in Step 5 / Meeting 13."
   },
@@ -404,6 +409,7 @@
     "url": "/guide/#step-6",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-intervention-tool.pdf",
+    "word": "/templates/ems-intervention-tool.docx",
     "description": "Plans a timely, targeted response by student: the specific need, strategy, who supports, when, and reassessment evidence.",
     "howToUse": "Complete in Step 6 / Meeting 15."
   },
@@ -416,6 +422,7 @@
     "url": "/guide/#step-7",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-extension-tool.pdf",
+    "word": "/templates/ems-extension-tool.docx",
     "description": "Plans deeper learning for proficient students: evidence of proficiency, the extension task, and the depth/application required.",
     "howToUse": "Complete in Step 7 / Meeting 15."
   },
@@ -428,6 +435,7 @@
     "url": "/guide/#step-8",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-teacher-reflection.pdf",
+    "word": "/templates/ems-teacher-reflection.docx",
     "description": "Captures what worked, the evidence for it, who can share the strategy, and what the team will try next.",
     "howToUse": "Complete in Step 8 / Meeting 14."
   }

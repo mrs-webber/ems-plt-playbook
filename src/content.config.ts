@@ -64,6 +64,8 @@ const resources = defineCollection({
     bookLocation: z.string().optional(),
     // Downloadable, print-ready PDF of an EMS-created template (in /public/templates).
     pdf: z.string().optional(),
+    // Downloadable, editable Word (.docx) version of an EMS-created template.
+    word: z.string().optional(),
     description: z.string(),
     howToUse: z.string(),
   }),
