@@ -75,6 +75,10 @@ const categoryMeta: Record<string, string> = {
   'EMS Editable Templates': 'Editable versions of the Guide’s Step 1–8 templates',
   'Optional / As Needed': 'Layer in when your team is ready',
 };
+
+// Slug used for the jump-nav anchors and matching section ids.
+const catId = (c: string) =>
+  c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 ---
 
 <BaseLayout
@@ -122,6 +126,25 @@ const categoryMeta: Record<string, string> = {
       </ul>
     </div>
 
+    <!-- Jump to a stage -->
+    <nav aria-label="Jump to a resource stage" class="mt-4">
+      <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        Jump to
+      </p>
+      <div class="mt-2 flex flex-wrap gap-2">
+        {
+          byCategory.map((group) => (
+            <a
+              href={`#${catId(group.category)}`}
+              class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-brand-700 transition-colors hover:border-brand-400 hover:bg-brand-50"
+            >
+              {group.category}
+            </a>
+          ))
+        }
+      </div>
+    </nav>
+
     <!-- Sourcing note -->
     <div
       class="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900"
@@ -145,7 +168,7 @@ const categoryMeta: Record<string, string> = {
     <!-- All resources by category -->
     {
       byCategory.map((group) => (
-        <section class="mt-14">
+        <section id={catId(group.category)} class="mt-14">
           <div class="border-l-4 border-accent-400 pl-4">
             <h2 class="text-xl font-bold text-brand-800">{group.category}</h2>
             {categoryMeta[group.category] && (
