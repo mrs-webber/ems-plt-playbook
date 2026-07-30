@@ -7,7 +7,7 @@ interface Props {
   usedIn?: number[];
 }
 const { resource, usedIn = [] } = Astro.props;
-const { title, source, required, url, linkLabel, book, bookLocation, description, howToUse } =
+const { title, source, required, url, linkLabel, book, bookLocation, description, howToUse, pdf } =
   resource.data;
 
 const sourceStyles: Record<string, string> = {
@@ -69,6 +69,18 @@ const external = url.startsWith('http');
   }
 
   <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+    {
+      pdf && (
+        <a
+          href={pdf}
+          download
+          aria-label={`Download the ${title} PDF`}
+          class="inline-flex w-fit items-center gap-1.5 rounded-lg border border-brand-700 bg-brand-700 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-brand-800"
+        >
+          <span aria-hidden="true">⬇</span> Download PDF
+        </a>
+      )
+    }
     <a
       href={url}
       target={external ? '_blank' : undefined}
