@@ -1,0 +1,128 @@
+{
+  "1": [
+    { "t": "Frame the year (≈5 min)", "d": "Name the shift out loud: PLT Lite → PLC Right. This is about student learning, not more meetings." },
+    { "t": "Read \"Cultural Shifts\" together (≈10 min)", "d": "Highlight where your team is now and circle the shifts you're moving toward." },
+    { "t": "Connect the framework (≈10 min)", "d": "Use the Alignment sheet to link the three big ideas → four pillars → four critical questions." },
+    { "t": "Reflect honestly (≈10 min)", "d": "Where are we already strong? Where are we still PLT Lite?" },
+    { "t": "Land one commitment (≈5 min)", "d": "Finish the sentence together: \"This year, our PLT will focus less on ______ and more on ______.\"" }
+  ],
+  "2": [
+    { "t": "Reconnect (≈5 min)", "d": "Revisit the commitment you wrote in Meeting 1." },
+    { "t": "Why norms? (≈10 min)", "d": "Talk about why norms matter when the work gets uncomfortable." },
+    { "t": "Write your norms (≈15 min)", "d": "Agree on 4–6 behavior-based norms — specific actions, not \"be respectful.\"" },
+    { "t": "Assign roles (≈8 min)", "d": "Use the Team Roles sheet; decide who takes each role and for how long." },
+    { "t": "Set accountability (≈7 min)", "d": "Decide how you'll hold each other to the norms." }
+  ],
+  "3": [
+    { "t": "Start with your norms (≈5 min)", "d": "Agree up front to be honest without judgment." },
+    { "t": "Self-assess (≈10 min)", "d": "Complete the readiness tool / Critical Issues — rate where the team is now." },
+    { "t": "Spot patterns (≈15 min)", "d": "Where are you already functioning well? Where are you stuck?" },
+    { "t": "Pick a focus (≈10 min)", "d": "Name one area to grow during this first cycle." },
+    { "t": "Choose your course/unit (≈5 min)", "d": "Decide the course or unit you'll use for this year's learning cycle." }
+  ],
+  "4": [
+    { "t": "Clear up confusion (≈10 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
+    { "t": "Re-ground in norms & roles (≈10 min)", "d": "Reaffirm how you work together before the content work begins." },
+    { "t": "Confirm your unit (≈10 min)", "d": "Lock in the course/unit for this cycle." },
+    { "t": "List possible essential standards (≈10 min)", "d": "Brainstorm candidates for the one standard you'll guarantee." },
+    { "t": "Assign pre-work (≈5 min)", "d": "Decide what standards and materials everyone brings next time." }
+  ],
+  "5": [
+    { "t": "Review your unit (≈5 min)", "d": "Re-anchor on the course/unit you chose." },
+    { "t": "Teach vs. learn (≈10 min)", "d": "Discuss the difference between what we teach and what students must learn." },
+    { "t": "Choose one essential standard (≈20 min)", "d": "Use REAL — readiness, endurance, assessed, leverage — to select just one." },
+    { "t": "Confirm it (≈8 min)", "d": "Agree on the single essential standard for this cycle." },
+    { "t": "Assign pre-work (≈2 min)", "d": "Bring student work samples, curriculum, and assessment examples next time." }
+  ],
+  "6": [
+    { "t": "Revisit the standard (≈5 min)", "d": "Re-read your essential standard together." },
+    { "t": "Unpack it (≈10 min)", "d": "Identify the key concepts, skills, vocabulary, and level of rigor." },
+    { "t": "Break into learning targets (≈20 min)", "d": "Turn the standard into smaller, teachable, assessable targets." },
+    { "t": "Write \"I can\" statements (≈8 min)", "d": "Put each target in student-friendly language." },
+    { "t": "Prioritize (≈2 min)", "d": "Decide which targets matter most to assess." }
+  ],
+  "7": [
+    { "t": "Review your targets (≈5 min)", "d": "Re-anchor on the learning targets you drafted." },
+    { "t": "Define \"proficient\" (≈10 min)", "d": "Discuss what proficient student work actually includes." },
+    { "t": "Write success criteria (≈15 min)", "d": "Create clear criteria for each target." },
+    { "t": "Calibrate on samples (≈10 min)", "d": "Look at sample work — do you agree it shows proficiency?" },
+    { "t": "Finalize (≈5 min)", "d": "Lock in the success criteria or note what still needs revision." }
+  ],
+  "8": [
+    { "t": "Re-ground (≈10 min)", "d": "Review the essential standard, targets, and success criteria." },
+    { "t": "Calibrate (≈15 min)", "d": "Score a sample question, task, or response together — do you agree?" },
+    { "t": "Surface disagreements (≈10 min)", "d": "Name any gaps or differences in how you'd score." },
+    { "t": "Revise (≈8 min)", "d": "Adjust targets or proficiency criteria as needed." },
+    { "t": "Confirm readiness (≈2 min)", "d": "Agree you're ready to design the common assessment." }
+  ],
+  "9": [
+    { "t": "Review targets & criteria (≈5 min)", "d": "Re-anchor on what students must learn and what proficient looks like." },
+    { "t": "Decide what counts as evidence (≈10 min)", "d": "What would prove a student learned the target?" },
+    { "t": "Draft the assessment (≈20 min)", "d": "Create or select common items and tasks." },
+    { "t": "Check alignment (≈8 min)", "d": "Does each item match a learning target?" },
+    { "t": "Assign follow-up (≈2 min)", "d": "Divide any item-writing before next time." }
+  ],
+  "10": [
+    { "t": "Review the draft (≈5 min)", "d": "Look at the assessment as a team." },
+    { "t": "Pressure-test each item (≈15 min)", "d": "Use the ACID test — check each item against its target." },
+    { "t": "Agree on scoring (≈10 min)", "d": "How will everyone score it the same way?" },
+    { "t": "Plan data collection (≈8 min)", "d": "Decide how you'll record results by student and by target." },
+    { "t": "Set the timeline (≈7 min)", "d": "Choose the assessment window and the data-review date." }
+  ],
+  "11": [
+    { "t": "Review the CFA & targets (≈5 min)", "d": "Re-anchor on what you're teaching toward." },
+    { "t": "Share strategies (≈15 min)", "d": "Swap instructional approaches for each target." },
+    { "t": "Anticipate gaps (≈10 min)", "d": "Name likely misconceptions and prerequisite skills." },
+    { "t": "Plan checks for understanding (≈10 min)", "d": "How will you check learning before the CFA?" },
+    { "t": "Confirm the plan (≈5 min)", "d": "Lock the teaching window and the CFA date." }
+  ],
+  "12": [
+    { "t": "Share what you're seeing (≈10 min)", "d": "Bring early evidence of student understanding." },
+    { "t": "Name the misconceptions (≈15 min)", "d": "What are students getting wrong so far?" },
+    { "t": "Adjust now (≈10 min)", "d": "Change instruction while there's still time to help." },
+    { "t": "Confirm CFA logistics (≈8 min)", "d": "Nail down when and how you'll give it." },
+    { "t": "Agree on data (≈2 min)", "d": "Decide what each teacher brings after the CFA." }
+  ],
+  "13": [
+    { "t": "Set the tone (≈5 min)", "d": "Remind everyone: data is evidence, not judgment." },
+    { "t": "Read results by target (≈10 min)", "d": "Look target-by-target, not just at total scores." },
+    { "t": "Sort students (≈15 min)", "d": "Group into proficient, not-yet-proficient, and ready-for-extension." },
+    { "t": "Find patterns (≈8 min)", "d": "Compare across classes — what seemed to work?" },
+    { "t": "Pick a priority (≈7 min)", "d": "Choose the target to focus intervention and extension on." }
+  ],
+  "14": [
+    { "t": "Review the patterns (≈5 min)", "d": "Re-anchor on what the data showed." },
+    { "t": "Find what worked (≈15 min)", "d": "Which strategies produced the strongest results?" },
+    { "t": "Compare without blame (≈10 min)", "d": "Discuss differences openly and safely." },
+    { "t": "Decide next moves (≈10 min)", "d": "What will you replicate, revise, or stop?" },
+    { "t": "Capture it (≈5 min)", "d": "Record the team's learning before planning intervention." }
+  ],
+  "15": [
+    { "t": "Review the priority target (≈5 min)", "d": "Re-anchor on the target you're responding to." },
+    { "t": "Plan intervention (≈15 min)", "d": "Build a reteach plan for students who aren't yet proficient." },
+    { "t": "Plan extension (≈10 min)", "d": "Design deeper work for students who are ready." },
+    { "t": "Decide logistics (≈8 min)", "d": "Who provides support, when, and what students will do." },
+    { "t": "Plan reassessment (≈7 min)", "d": "Decide how and when you'll check again." }
+  ],
+  "16": [
+    { "t": "Share what happened (≈10 min)", "d": "How did intervention and extension actually go?" },
+    { "t": "Review the evidence (≈15 min)", "d": "Look at student participation and progress." },
+    { "t": "Adjust (≈10 min)", "d": "Tweak the plan where it isn't working — missteps are expected." },
+    { "t": "Confirm reassessment (≈8 min)", "d": "Lock the reassessment plan." },
+    { "t": "Agree on evidence (≈2 min)", "d": "Decide what to bring next time." }
+  ],
+  "17": [
+    { "t": "Review reassessment evidence (≈5 min)", "d": "Bring the results from your reassessment." },
+    { "t": "See who improved (≈15 min)", "d": "Identify students who grew and those who still need support." },
+    { "t": "Name what worked (≈10 min)", "d": "Which intervention/extension strategies made the difference?" },
+    { "t": "Plan final support (≈8 min)", "d": "Decide any remaining support for students not yet there." },
+    { "t": "Capture the cycle's learning (≈7 min)", "d": "What did the full cycle teach you?" }
+  ],
+  "18": [
+    { "t": "Retrace the cycle (≈10 min)", "d": "Walk from essential standard all the way to reassessment." },
+    { "t": "Reflect as a team (≈15 min)", "d": "Use the Learning Team Quarterly Reflection." },
+    { "t": "Name the takeaways (≈10 min)", "d": "What worked, what was hard, and what to change next year." },
+    { "t": "Pick one thing to strengthen (≈5 min)", "d": "Choose one PLC practice to grow in your next cycle." },
+    { "t": "Celebrate (≈5 min)", "d": "You completed an authentic cycle. Acknowledge it together." }
+  ]
+}
