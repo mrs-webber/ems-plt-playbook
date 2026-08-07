@@ -16,6 +16,13 @@ export const site = {
     'A step-by-step playbook, yearlong meeting agendas, and reproducibles to help EMS Professional Learning Teams shift from PLC Lite to PLC Right — one authentic learning cycle at a time.',
 };
 
+/**
+ * Feature flag: the accountability layer (nav link, the /accountability page,
+ * and the "Submit for the record" milestone callouts on meeting agendas).
+ * Set to true to bring it back.
+ */
+export const showAccountability = false;
+
 /** Primary navigation shown in the header and footer. */
 export const nav = [
   { label: 'Home', href: '/' },
@@ -23,7 +30,9 @@ export const nav = [
   { label: 'The 18 Meetings', href: '/meetings/' },
   { label: 'Resources', href: '/resources/' },
   { label: 'The Process', href: '/process/' },
-  { label: 'Accountability', href: '/accountability/' },
+  ...(showAccountability
+    ? [{ label: 'Accountability', href: '/accountability/' }]
+    : []),
 ];
 
 /** The four critical questions of a PLC — referenced across the site. */

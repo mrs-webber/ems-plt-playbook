@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import FourQuestions from '../../components/FourQuestions.astro';
 import directionsData from '../../data/directions.json';
 import submissionsData from '../../data/submissions.json';
+import { showAccountability } from '../../config';
 
 export async function getStaticPaths() {
   const meetings = await getCollection('meetings');
@@ -130,7 +131,7 @@ const meetingResources = [
       </div>
 
       {
-        submission && (
+        showAccountability && submission && (
           <div class="mt-6 rounded-xl border-2 border-accent-300 bg-accent-50 p-5">
             <div class="flex flex-wrap items-center gap-2">
               <span class="text-lg" aria-hidden="true">

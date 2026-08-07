@@ -3,6 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import { getCollection } from 'astro:content';
 import submissions from '../../data/submissions.json';
+import { showAccountability } from '../../config';
+
+// Accountability layer is hidden for now — send visitors home until it's back.
+if (!showAccountability) {
+  return Astro.redirect('/');
+}
 
 const meetings = await getCollection('meetings');
 const titleByNum = new Map(meetings.map((m) => [m.data.number, m.data.title]));
