@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getCollection } from 'astro:content';
+import submissions from '../../data/submissions.json';
+
+const meetings = await getCollection('meetings');
+const titleByNum = new Map(meetings.map((m) => [m.data.number, m.data.title]));
+
+const milestones = Object.entries(
+  submissions as Record<
+    string,
+    { artifact: string; reflect: string; proves: string }
+  >
+)
+  .map(([num, s]) => ({
+    num: Number(num),
+    title: titleByNum.get(Number(num)) ?? '',
+    ...s,
+  }))
+  .sort((a, b) => a.num - b.num);
+
+const principles = [
+  {
+    title: 'Require evidence, not activity',
+    body: 'A checkbox asks “Did you meet? Did you fill in the form?” Accountability asks “Show us what students learned and what your team did about it.” Collect the products the work already makes — never a separate report on top of it.',
+  },
+  {
+    title: 'Pair every artifact with a reflection',
+    body: 'A template can be filled in mindlessly; “What did your data tell you, and what are you changing because of it?” cannot. The reflection sentence is what turns a deliverable into evidence of thinking.',
+  },
+];
+
+const howToSubmit = [
+  {
+    title: 'One shared team folder',
+    body: 'Each team keeps a living folder (Google Drive or OneDrive) — not a form only you can see. When the artifacts are visible, teams hold themselves. Visibility is the accountability.',
+  },
+  {
+    title: 'One running cycle log',
+    body: 'Keep the whole story in one place — a single doc or one-pager per team — instead of scattered files. The milestones below are the entries; the rest of the team’s working docs stay theirs.',
+  },
+  {
+    title: 'You close the loop',
+    body: 'This is the part that decides everything. A one-line comment, a “can I sit in on your data meeting?”, or acting on a “we’re stuck on X” is what makes it accountability instead of surveillance. If nothing comes back, it becomes a checkbox no matter how it’s designed.',
+  },
+];
+---
+
+<BaseLayout
+  title="Accountability"
+  description="How to hold PLTs accountable without turning the work into a compliance checklist — the handful of milestone products each team submits, the reflection that keeps it honest, and how they turn it in."
+>
+  <PageHeader
+    eyebrow="Making It Real"
+    title="Accountability without the checklist"
+    subtitle="The goal isn’t to prove teams met. It’s to see what students learned and what teams did about it. That takes a few real products — not more paperwork — and a leader who responds to what they see."
+  />
+
+  <div class="mx-auto max-w-6xl px-4 py-12">
+    <!-- Principle -->
+    <section>
+      <h2 class="text-2xl font-bold text-brand-800">
+        Two rules that keep it off the checkbox
+      </h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-2">
+        {
+          principles.map((p, i) => (
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-accent-500 text-sm font-bold text-white">
+                {i + 1}
+              </span>
+              <h3 class="mt-4 font-semibold text-brand-800">{p.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{p.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Tight vs loose -->
+    <section class="mt-14">
+      <h2 class="text-2xl font-bold text-brand-800">
+        Anchor on a few milestones — not all 18 meetings
+      </h2>
+      <p class="mt-3 max-w-3xl text-slate-600">
+        Collecting something after every meeting <em>guarantees</em> it feels like
+        a checklist. Instead, make a handful of artifacts <strong>tight</strong>
+        (non-negotiable, tied to student learning) and leave everything else
+        <strong>loose</strong> — the team’s own working docs, theirs to keep. These
+        seven milestones are the tight ones. Each is a product a meeting already
+        produces, so nothing here is extra work.
+      </p>
+
+      <div class="mt-8 space-y-4">
+        {
+          milestones.map((m) => (
+            <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-800 text-sm font-bold text-white">
+                  {m.num}
+                </span>
+                <a
+                  href={`/meetings/${m.num}/`}
+                  class="font-semibold text-brand-800 hover:text-brand-600 hover:underline"
+                >
+                  Meeting {m.num}: {m.title}
+                </a>
+                {m.num === 13 && (
+                  <span class="rounded-full bg-accent-500 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-white">
+                    The turning point
+                  </span>
+                )}
+              </div>
+              <dl class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div class="sm:col-span-2">
+                  <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Submit
+                  </dt>
+                  <dd class="mt-1 text-sm text-slate-700">{m.artifact}</dd>
+                </div>
+                <div>
+                  <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    The reflection that keeps it honest
+                  </dt>
+                  <dd class="mt-1 text-sm italic text-slate-700">“{m.reflect}”</dd>
+                </div>
+                <div>
+                  <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                    Why it isn’t a checkbox
+                  </dt>
+                  <dd class="mt-1 text-sm text-slate-700">{m.proves}</dd>
+                </div>
+              </dl>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- How to submit -->
+    <section class="mt-14">
+      <h2 class="text-2xl font-bold text-brand-800">How teams turn it in</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        {
+          howToSubmit.map((h) => (
+            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 class="font-semibold text-brand-800">{h.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{h.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Reminder -->
+    <section class="mt-14 rounded-2xl bg-brand-800 p-8 text-white">
+      <h2 class="text-xl font-bold">The short version</h2>
+      <p class="mt-3 max-w-3xl text-brand-50">
+        Require a few real products tied to student learning, each with a
+        reflection, dropped in a visible shared folder — and close the loop by
+        responding to what you see. Everything on this page is designed so that
+        holding teams accountable and helping them get better are the same act.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

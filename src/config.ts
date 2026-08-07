@@ -23,6 +23,7 @@ export const nav = [
   { label: 'The 18 Meetings', href: '/meetings/' },
   { label: 'Resources', href: '/resources/' },
   { label: 'The Process', href: '/process/' },
+  { label: 'Accountability', href: '/accountability/' },
 ];
 
 /** The four critical questions of a PLC — referenced across the site. */
