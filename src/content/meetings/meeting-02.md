@@ -4,8 +4,8 @@ title: Team Norms and Roles
 focus: Creating the conditions for productive collaboration.
 plcQuestion: How will we work together in a way that keeps student learning at the center?
 criticalQuestions: []
-product: Completed team norms and team roles.
-resources: [developing-team-norms, establishing-team-roles, plc-team-roles, ems-team-commitments]
+product: Specific, measurable team norms (behavioral commitments) and assigned team roles.
+resources: [developing-team-norms, sample-team-norms, steps-establishing-team-norms, selecting-collective-commitments, collaborative-team-rubric, establishing-team-roles, plc-team-roles, ems-team-commitments]
 revisit: []
 buffer: false
 turningPoint: false
@@ -17,7 +17,7 @@ turningPoint: false
 | --- | --- |
 | 0–5 min | Review team commitment from Meeting 1. |
 | 5–15 min | Discuss why norms matter when the work gets uncomfortable. |
-| 15–30 min | Create or revise team norms. |
+| 15–30 min | Create or revise team norms — write each as a specific, observable commitment ("We will…"), not a vague value. |
 | 30–38 min | Assign team roles: facilitator, recorder, timekeeper, data lead. |
 | 38–45 min | Decide how the team will hold itself accountable to the norms. |
 

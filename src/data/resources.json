@@ -51,6 +51,54 @@
     "howToUse": "Use at Meeting 2 when assigning roles, and keep it handy so everyone knows what their role involves."
   },
   {
+    "id": "sample-team-norms",
+    "title": "Sample Team Norms",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_TARTI/sampleteamnorms.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Taking Action: A Handbook for RTI at Work",
+    "description": "A page of concrete, behavior-based example norms teams can adapt — the fastest way to move a team from vague statements like \"be respectful\" to specific, observable commitments.",
+    "howToUse": "Use at Meeting 2 as a model while writing norms: borrow the specificity, then make each norm your team's own."
+  },
+  {
+    "id": "steps-establishing-team-norms",
+    "title": "Steps for Establishing Team Norms",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_RTIAWPB/stepsforestablishingteamnorms.pdf",
+    "linkLabel": "Download PDF",
+    "book": "RTI at Work Plan Book",
+    "description": "A short, repeatable protocol for building norms as a team — surfacing what each member needs, then turning it into specific commitments everyone agrees to.",
+    "howToUse": "Use at Meeting 2 to run the norm-setting conversation, so norms come from a process rather than off the top of someone's head."
+  },
+  {
+    "id": "selecting-collective-commitments",
+    "title": "Selecting Collective Commitments",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_SFMTW/selectingcollectivecommitments.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Shifting From Me to We",
+    "description": "Reframes norms as collective commitments — the specific behaviors a team promises one another — which is the exact \"commitment\" language your teams are moving toward.",
+    "howToUse": "Use at Meeting 2 to phrase norms as \"We will…\" commitments the whole team owns."
+  },
+  {
+    "id": "collaborative-team-rubric",
+    "title": "Collaborative Team Rubric",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_100DL/collaborativeteamrubric.pdf",
+    "linkLabel": "Download PDF",
+    "book": "100-Day Leaders",
+    "description": "A four-point rubric (Emerging → Adaptive) describing how a collaborative team actually functions. This is the measurable piece: teams rate where they are and re-score across the year to see growth.",
+    "howToUse": "Use at Meeting 2 to make norms measurable, then revisit at the reset and reflection meetings (4 and 18) to check whether the team is living them."
+  },
+  {
     "id": "big-ideas-pillars-questions",
     "title": "Alignment of the Three Big Ideas, Four Pillars & Four Critical Questions",
     "source": "Solution Tree",
