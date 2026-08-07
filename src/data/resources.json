@@ -39,6 +39,18 @@
     "howToUse": "Use alongside team norms (Meeting 2). Assign facilitator, recorder, timekeeper, and data lead, and revisit as needed."
   },
   {
+    "id": "plc-team-roles",
+    "title": "Team Roles for Collaborative Meetings",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "/templates/plc-team-roles.pdf",
+    "linkLabel": "Download PDF",
+    "book": "The Brilliance in the Building",
+    "description": "A one-page reference defining the standard roles for collaborative meetings — Facilitator, Recorder/notetaker, Timekeeper, and Engaged participant — with the key responsibilities of each.",
+    "howToUse": "Use at Meeting 2 when assigning roles, and keep it handy so everyone knows what their role involves."
+  },
+  {
     "id": "critical-issues",
     "title": "Critical Issues for Team Consideration",
     "source": "Solution Tree",
