@@ -5,7 +5,7 @@ focus: Naming current reality.
 plcQuestion: Where are we as a team right now?
 criticalQuestions: []
 product: Completed team self-assessment and selected course/unit focus.
-resources: [critical-issues]
+resources: [critical-issues, four-questions-readiness]
 revisit: []
 buffer: false
 turningPoint: false

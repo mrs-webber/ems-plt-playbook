@@ -5,7 +5,7 @@ focus: Culture shift and shared purpose.
 plcQuestion: Why are we changing how PLTs work?
 criticalQuestions: []
 product: 'Each team writes one sentence: "This year, our PLT will focus less on ______ and more on ______."'
-resources: [cultural-shifts]
+resources: [cultural-shifts, big-ideas-pillars-questions]
 revisit: []
 buffer: false
 turningPoint: false

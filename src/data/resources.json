@@ -44,11 +44,35 @@
     "source": "Solution Tree",
     "category": "Culture & Foundations",
     "required": false,
-    "url": "/templates/plc-team-roles.pdf",
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_BIB/teamrolesforcollaborativemeetings.pdf",
     "linkLabel": "Download PDF",
     "book": "The Brilliance in the Building",
     "description": "A one-page reference defining the standard roles for collaborative meetings — Facilitator, Recorder/notetaker, Timekeeper, and Engaged participant — with the key responsibilities of each.",
     "howToUse": "Use at Meeting 2 when assigning roles, and keep it handy so everyone knows what their role involves."
+  },
+  {
+    "id": "big-ideas-pillars-questions",
+    "title": "Alignment of the Three Big Ideas, Four Pillars & Four Critical Questions",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_VPLC/figure2.2alignmentofthethreebigideasfourpillarsandfourcriticalquestionsofaplcatwork.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Virtual PLCs at Work",
+    "description": "A single-page overview that aligns the whole PLC at Work framework — the three big ideas, the four pillars (mission, vision, values, goals), and the four critical questions.",
+    "howToUse": "Use at Meeting 1 to see the whole framework at a glance and connect the big ideas to the four questions."
+  },
+  {
+    "id": "four-questions-readiness",
+    "title": "Four Critical Questions — Key Considerations (Team Readiness Tool)",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_ECBL/impacttool11thefourcriticalquestionsofaplckeyconsiderationstodeepencompetencybasedlearningwork.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Elevating Competency-Based Learning in a PLC at Work",
+    "description": "A team self-assessment organized by the four critical questions. For each task — defining essential learning, building common assessments, planning intervention and extension — the team rates whether they're already doing it, ready now, or not yet ready.",
+    "howToUse": "Use at Meeting 3 to name where the team is now across the four questions and pick a focus for the year."
   },
   {
     "id": "critical-issues",
