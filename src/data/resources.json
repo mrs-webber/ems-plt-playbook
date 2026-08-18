@@ -99,6 +99,18 @@
     "howToUse": "Use at Meeting 2 to make norms measurable, then revisit at the reset and reflection meetings (4 and 18) to check whether the team is living them."
   },
   {
+    "id": "identifying-team-norms-protocol",
+    "title": "Identifying Team Norms Protocol",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_CTPBPLC/identifyingteamnormsprotocol.pdf",
+    "linkLabel": "Download PDF",
+    "book": "The Collaborative Team Plan Book for PLCs at Work",
+    "description": "A nine-step facilitator protocol for building norms as a team — surfacing past negative and positive team behaviors, reaching consensus with fist-to-five, and (step 8) agreeing how the team will handle it when a norm is violated.",
+    "howToUse": "Use to run the norm-setting conversation at Meeting 2, and to prompt the up-front agreement about how the team will handle violations."
+  },
+  {
     "id": "why-create-norms",
     "title": "Why Should We Create Norms?",
     "source": "Solution Tree",
@@ -467,6 +479,19 @@
     "word": "/templates/ems-vague-to-specific-norms.docx",
     "description": "A hands-on worksheet that turns vague values (\"be respectful,\" \"show up on time\") into specific, observable commitments — with a vague→specific example table, a four-point specificity check, a \"looks like / sounds like\" builder, and space to draft your team's final \"We will…\" norms.",
     "howToUse": "Work through it as a team during Meeting 2 to write norms you can actually see and measure. Pairs with the Collaborative Team Rubric."
+  },
+  {
+    "id": "ems-norm-accountability-conversation",
+    "title": "EMS Worksheet: Holding Each Other Accountable — The Norm-Violation Conversation",
+    "source": "EMS-created",
+    "category": "EMS Editable Templates",
+    "required": false,
+    "url": "/guide/#step-1",
+    "linkLabel": "Open in the Guide",
+    "pdf": "/templates/ems-norm-accountability-conversation.pdf",
+    "word": "/templates/ems-norm-accountability-conversation.docx",
+    "description": "A hands-on worksheet for the hardest part of norms — holding each other to them. Includes an up-front accountability protocol, a response ladder, a five-move conversation structure with sentence stems, guardrails, and a role-play to practice before it's real.",
+    "howToUse": "Use at Meeting 2 (and revisit when a norm slips) so the team agrees how it will hold itself accountable and has language ready for the conversation."
   },
   {
     "id": "ems-essential-standards-organizer",
