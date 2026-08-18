@@ -99,6 +99,29 @@
     "howToUse": "Use at Meeting 2 to make norms measurable, then revisit at the reset and reflection meetings (4 and 18) to check whether the team is living them."
   },
   {
+    "id": "why-create-norms",
+    "title": "Why Should We Create Norms?",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_LD3/whyshouldwecreatenorms.pdf",
+    "linkLabel": "Download PDF",
+    "book": "Learning by Doing, 3rd Edition",
+    "description": "Makes the case for norms as behavioral commitments and gives sample norms teams can learn from — useful for a team that isn't yet sold on why specific norms matter.",
+    "howToUse": "Read together at the start of Meeting 2 to ground the why before writing your own specific norms."
+  },
+  {
+    "id": "nice-to-knows-article",
+    "title": "Do We Have Team Norms or \"Nice to Knows\"?",
+    "source": "AllThingsPLC",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://allthingsplc.info/do-we-have-team-norms-or-nice-to-knows/",
+    "linkLabel": "Read the article",
+    "description": "A short read that names the trap directly: vague norms nobody enforces become \"nice to knows.\" Argues every norm needs a specific behavior and an agreed way to respond when it's broken.",
+    "howToUse": "Share before or during Meeting 2 to motivate why norms must be specific and have an accountability plan."
+  },
+  {
     "id": "big-ideas-pillars-questions",
     "title": "Alignment of the Three Big Ideas, Four Pillars & Four Critical Questions",
     "source": "Solution Tree",
@@ -431,6 +454,19 @@
     "word": "/templates/ems-team-commitments.docx",
     "description": "EMS-ready team commitments, roles, and meeting logistics — an editable equivalent inspired by the PLC at Work process.",
     "howToUse": "Complete in Step 1 / Meeting 2 as your team's foundation document."
+  },
+  {
+    "id": "ems-vague-to-specific-norms",
+    "title": "EMS Worksheet: From Vague to Specific — Norms You Can See",
+    "source": "EMS-created",
+    "category": "EMS Editable Templates",
+    "required": false,
+    "url": "/guide/#step-1",
+    "linkLabel": "Open in the Guide",
+    "pdf": "/templates/ems-vague-to-specific-norms.pdf",
+    "word": "/templates/ems-vague-to-specific-norms.docx",
+    "description": "A hands-on worksheet that turns vague values (\"be respectful,\" \"show up on time\") into specific, observable commitments — with a vague→specific example table, a four-point specificity check, a \"looks like / sounds like\" builder, and space to draft your team's final \"We will…\" norms.",
+    "howToUse": "Work through it as a team during Meeting 2 to write norms you can actually see and measure. Pairs with the Collaborative Team Rubric."
   },
   {
     "id": "ems-essential-standards-organizer",
