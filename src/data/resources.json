@@ -455,17 +455,17 @@
     "howToUse": "Keep in the appendix and reference whenever teams are still building shared vocabulary."
   },
   {
-    "id": "ems-team-commitments",
-    "title": "EMS Template: Team Commitments",
+    "id": "ems-team-roles",
+    "title": "EMS Worksheet: Team Roles",
     "source": "EMS-created",
     "category": "EMS Editable Templates",
     "required": false,
     "url": "/guide/#step-1",
     "linkLabel": "Open in the Guide",
-    "pdf": "/templates/ems-team-commitments.pdf",
-    "word": "/templates/ems-team-commitments.docx",
-    "description": "EMS-ready team commitments, roles, and meeting logistics — an editable equivalent inspired by the PLC at Work process.",
-    "howToUse": "Complete in Step 1 / Meeting 2 as your team's foundation document."
+    "pdf": "/templates/ems-team-roles.pdf",
+    "word": "/templates/ems-team-roles.docx",
+    "description": "Worksheet 1 of the Meeting 2 sequence (Roles → Norms → Accountability). Establishes team roles — Facilitator/Team Leader, Recorder/Notetaker, Timekeeper — with flexibility for small and large teams, optional additional roles, and a rotation decision.",
+    "howToUse": "Complete first in Meeting 2 to assign who does what, then carry your roles into the Developing Specific Norms worksheet."
   },
   {
     "id": "ems-vague-to-specific-norms",
