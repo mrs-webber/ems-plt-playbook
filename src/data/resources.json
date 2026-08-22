@@ -468,30 +468,30 @@
     "howToUse": "Complete first in Meeting 2 to assign who does what, then carry your roles into the Developing Specific Norms worksheet."
   },
   {
-    "id": "ems-vague-to-specific-norms",
-    "title": "EMS Worksheet: From Vague to Specific — Norms You Can See",
+    "id": "ems-developing-norms",
+    "title": "EMS Worksheet: Developing Specific Norms",
     "source": "EMS-created",
     "category": "EMS Editable Templates",
     "required": false,
     "url": "/guide/#step-1",
     "linkLabel": "Open in the Guide",
-    "pdf": "/templates/ems-vague-to-specific-norms.pdf",
-    "word": "/templates/ems-vague-to-specific-norms.docx",
-    "description": "A hands-on worksheet that turns vague values (\"be respectful,\" \"show up on time\") into specific, observable commitments — with a vague→specific example table, a four-point specificity check, a \"looks like / sounds like\" builder, and space to draft your team's final \"We will…\" norms.",
-    "howToUse": "Work through it as a team during Meeting 2 to write norms you can actually see and measure. Pairs with the Collaborative Team Rubric."
+    "pdf": "/templates/ems-developing-norms.pdf",
+    "word": "/templates/ems-developing-norms.docx",
+    "description": "Worksheet 2 of the Meeting 2 sequence (Roles → Norms → Accountability). Turns vague values (\"be respectful,\" \"show up on time\") into specific, observable commitments — with a vague→specific example table, a four-point specificity check, a \"looks like / sounds like\" builder, and space to draft your team's final \"We will…\" norms.",
+    "howToUse": "Complete after assigning roles. Write norms you can see and measure, then carry them into the Holding Each Other Accountable worksheet."
   },
   {
-    "id": "ems-norm-accountability-conversation",
-    "title": "EMS Worksheet: Holding Each Other Accountable — The Norm-Violation Conversation",
+    "id": "ems-holding-accountable",
+    "title": "EMS Worksheet: Holding Each Other Accountable",
     "source": "EMS-created",
     "category": "EMS Editable Templates",
     "required": false,
     "url": "/guide/#step-1",
     "linkLabel": "Open in the Guide",
-    "pdf": "/templates/ems-norm-accountability-conversation.pdf",
-    "word": "/templates/ems-norm-accountability-conversation.docx",
-    "description": "A hands-on worksheet for the hardest part of norms — holding each other to them. Includes an up-front accountability protocol, a response ladder, a five-move conversation structure with sentence stems, guardrails, and a role-play to practice before it's real.",
-    "howToUse": "Use at Meeting 2 (and revisit when a norm slips) so the team agrees how it will hold itself accountable and has language ready for the conversation."
+    "pdf": "/templates/ems-holding-accountable.pdf",
+    "word": "/templates/ems-holding-accountable.docx",
+    "description": "Worksheet 3 of the Meeting 2 sequence (Roles → Norms → Accountability). The hardest part of norms — holding each other to them: an up-front accountability protocol, a response ladder, a five-move conversation with sentence stems, guardrails, and a role-play to practice before it's real.",
+    "howToUse": "Complete after writing your norms so the team agrees how it will hold itself accountable and has language ready for the conversation. Revisit whenever a norm slips."
   },
   {
     "id": "ems-norm-breaker-activity",
