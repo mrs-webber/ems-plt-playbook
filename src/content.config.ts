@@ -19,6 +19,9 @@ const meetings = defineCollection({
     resources: z.array(z.string()).default([]),
     // Resource slugs revisited (already introduced in an earlier meeting).
     revisit: z.array(z.string()).default([]),
+    // Optional downloadable one-page agenda (printable) for this meeting.
+    agendaPdf: z.string().optional(),
+    agendaWord: z.string().optional(),
     // Intentional buffer / reset meeting built in for the culture shift.
     buffer: z.boolean().default(false),
     // Meeting 13 — the turning point from "building clarity" to "PLC right".

@@ -116,15 +116,28 @@ const meetingResources = [
           </div>
         )
       }
-      <div class="mb-6 flex items-center justify-between gap-4">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
         <h2 class="text-xl font-bold text-brand-800">Meeting plan</h2>
-        <button
-          type="button"
-          data-print-trigger
-          class="no-print inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
-        >
-          <span aria-hidden="true">🖨</span> Print this agenda
-        </button>
+        <div class="no-print flex flex-wrap items-center gap-2">
+          {
+            data.agendaPdf && (
+              <a
+                href={data.agendaPdf}
+                download
+                class="inline-flex items-center gap-1.5 rounded-lg border border-brand-700 bg-brand-700 px-3 py-1.5 text-sm font-semibold text-white transition-colors hover:bg-brand-800"
+              >
+                <span aria-hidden="true">⬇</span> One-page agenda
+              </a>
+            )
+          }
+          <button
+            type="button"
+            data-print-trigger
+            class="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+          >
+            <span aria-hidden="true">🖨</span> Print this agenda
+          </button>
+        </div>
       </div>
       <div class="rich-text print-full rounded-xl border border-slate-200 bg-white p-6">
         <Content />

@@ -4,6 +4,8 @@ title: Team Roles, Norms, and Accountability
 focus: Creating the conditions for productive collaboration.
 plcQuestion: How will we work together in a way that keeps student learning at the center?
 criticalQuestions: []
+agendaPdf: /agendas/ems-meeting-2-agenda.pdf
+agendaWord: /agendas/ems-meeting-2-agenda.docx
 product: Assigned team roles, specific and measurable norms, and an agreed way to hold each other accountable (finalized at Meeting 4).
 resources: [ems-team-roles, establishing-team-roles, plc-team-roles, developing-team-norms, ems-developing-norms, developing-specific-actions, developing-specific-actions-sample, sample-team-norms, steps-establishing-team-norms, identifying-team-norms-protocol, selecting-collective-commitments, why-create-norms, nice-to-knows-article, ems-holding-accountable]
 revisit: []
