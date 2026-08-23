@@ -6,7 +6,7 @@ plcQuestion: What are we noticing before the assessment?
 criticalQuestions: [2]
 product: Instructional adjustment plan before the CFA.
 resources: [common-misconceptions]
-revisit: [pacing-guide]
+revisit: [pacing-guide, collaborative-team-rubric]
 buffer: true
 turningPoint: false
 ---
@@ -17,12 +17,15 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–10 min | Share early evidence of student understanding. |
-| 10–25 min | Identify common student misconceptions. |
-| 25–35 min | Adjust instruction before the CFA. |
-| 35–43 min | Confirm CFA logistics. |
+| 0–5 min | Re-score the Collaborative Team Rubric and compare to your Meeting 3 baseline — where has the team grown? |
+| 5–15 min | Share early evidence of student understanding. |
+| 15–27 min | Identify common student misconceptions. |
+| 27–36 min | Adjust instruction before the CFA. |
+| 36–43 min | Confirm CFA logistics. |
 | 43–45 min | Decide what data each teacher will bring after the CFA. |
 
 ### Why This Meeting Matters
 
 This is the third intentional buffer. It reinforces that PLC work is not just "teach, test, sort." Teams should adjust instruction while learning is still happening.
+
+It's also the mid-year check-in on the team itself: re-score the Collaborative Team Rubric, compare to your Meeting 3 baseline, and name where you've grown. Same mirror, not a grade.

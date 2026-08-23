@@ -77,6 +77,7 @@
     { "t": "Confirm the plan (≈5 min)", "d": "Lock the teaching window and the CFA date." }
   ],
   "12": [
+    { "t": "Re-score your teamwork (≈5 min)", "d": "Take the Collaborative Team Rubric again and compare to your Meeting 3 baseline — where has the team grown? Celebrate the movement, then pick the next descriptor to push. Still a mirror, not a grade." },
     { "t": "Share what you're seeing (≈10 min)", "d": "Bring early evidence of student understanding." },
     { "t": "Name the misconceptions (≈15 min)", "d": "What are students getting wrong so far?" },
     { "t": "Adjust now (≈10 min)", "d": "Change instruction while there's still time to help." },
@@ -120,7 +121,8 @@
   ],
   "18": [
     { "t": "Retrace the cycle (≈10 min)", "d": "Walk from essential standard all the way to reassessment." },
-    { "t": "Reflect as a team (≈15 min)", "d": "Use the Learning Team Quarterly Reflection." },
+    { "t": "Reflect as a team (≈12 min)", "d": "Use the Learning Team Quarterly Reflection." },
+    { "t": "Re-score your teamwork (≈6 min)", "d": "Take the Collaborative Team Rubric one final time and set it beside your Meeting 3 baseline and mid-year check. Name how far the team has come — in specific, observable terms. This is the growth you built all year." },
     { "t": "Name the takeaways (≈10 min)", "d": "What worked, what was hard, and what to change next year." },
     { "t": "Pick one thing to strengthen (≈5 min)", "d": "Choose one PLC practice to grow in your next cycle." },
     { "t": "Celebrate (≈5 min)", "d": "You completed an authentic cycle. Acknowledge it together." }
