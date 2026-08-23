@@ -111,6 +111,30 @@
     "howToUse": "Use to run the norm-setting conversation at Meeting 2, and to prompt the up-front agreement about how the team will handle violations."
   },
   {
+    "id": "developing-specific-actions",
+    "title": "Developing Specific Actions to Address the Needs of Our Peers",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_HHET/tooldevelopingspecificactionstoaddresstheneedsofourpeers.pdf",
+    "linkLabel": "Download PDF",
+    "book": "The Handbook for Highly Effective Teams in a PLC at Work",
+    "description": "A working table listing ten common behaviors that derail collaborative teams, with space to write a norm for each using the format \"To ensure [the pattern we want], we will [a specific action].\"",
+    "howToUse": "Use at Meeting 2 alongside the Developing Specific Norms worksheet to turn the behaviors that trip up your team into specific, action-oriented norms."
+  },
+  {
+    "id": "developing-specific-actions-sample",
+    "title": "Sample: Developing Specific Actions to Address the Needs of Our Peers",
+    "source": "Solution Tree",
+    "category": "Culture & Foundations",
+    "required": false,
+    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_HHET/sampledevelopingspecificactionstoaddresstheneedsofourpeers.pdf",
+    "linkLabel": "Download PDF",
+    "book": "The Handbook for Highly Effective Teams in a PLC at Work",
+    "description": "The completed companion to the tool — the same ten derailing behaviors paired with model norms written as specific action statements, to compare against and borrow from.",
+    "howToUse": "Use at Meeting 2 after your team drafts its own action norms: compare to the samples and borrow or adapt any that fit."
+  },
+  {
     "id": "why-create-norms",
     "title": "Why Should We Create Norms?",
     "source": "Solution Tree",
