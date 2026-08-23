@@ -7,11 +7,11 @@
     { "t": "Land one commitment (≈5 min)", "d": "Finish the sentence together: \"This year, our PLT will focus less on ______ and more on ______.\"" }
   ],
   "2": [
-    { "t": "Reconnect (≈5 min)", "d": "Revisit the commitment you wrote in Meeting 1." },
-    { "t": "Why norms? (≈10 min)", "d": "Talk about why norms matter when the work gets uncomfortable." },
-    { "t": "Write measurable norms (≈15 min)", "d": "Agree on 4–6 norms written as specific, observable \"We will…\" commitments (e.g. \"We bring scored data to every data meeting\"), not vague values like \"be respectful.\" Use the Sample Team Norms and Collective Commitments sheets as models." },
-    { "t": "Assign roles (≈8 min)", "d": "Use the Team Roles sheet; decide who takes each role and for how long." },
-    { "t": "Make them measurable & set accountability (≈7 min)", "d": "Decide how you'll know you're living each norm, and agree how you'll respond when one is broken. (You'll baseline the broader Collaborative Team Rubric at Meeting 3.)" }
+    { "t": "Frame the flow (≈3 min)", "d": "Today you set up how your team works — roles, then norms, then how you'll hold each other to them. Revisit your Meeting 1 commitment." },
+    { "t": "Assign roles (≈10 min)", "d": "Use the Team Roles worksheet — assign facilitator/team leader, recorder, and timekeeper, with backups. Small teams can double up; larger teams can add roles." },
+    { "t": "Write specific norms (≈20 min)", "d": "Use the Developing Specific Norms worksheet — turn vague values into 4–6 observable \"We will…\" commitments. This is the big one; take the time. The Sample Team Norms and Developing Specific Actions sheets give models to borrow." },
+    { "t": "Set up accountability (≈10 min)", "d": "Use the Holding Each Other Accountable worksheet — agree your protocol and practice one move. A first pass is fine." },
+    { "t": "Hand off to Meeting 4 (≈2 min)", "d": "Note what still needs finalizing — you'll refine norms and finish accountability at the Meeting 4 buffer." }
   ],
   "3": [
     { "t": "Start with your norms (≈5 min)", "d": "Agree up front to be honest without judgment." },
@@ -22,7 +22,7 @@
   ],
   "4": [
     { "t": "Clear up confusion (≈10 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
-    { "t": "Re-ground in norms & roles (≈10 min)", "d": "Reaffirm how you work together before the content work begins." },
+    { "t": "Finalize your team foundation (≈12 min)", "d": "Refine the roles and norms you drafted in Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. This locks in how you'll work before content begins." },
     { "t": "Confirm your unit (≈10 min)", "d": "Lock in the course/unit for this cycle." },
     { "t": "List possible essential standards (≈10 min)", "d": "Brainstorm candidates for the one standard you'll guarantee." },
     { "t": "Assign pre-work (≈5 min)", "d": "Decide what standards and materials everyone brings next time." }
