@@ -5,7 +5,7 @@ focus: Creating the conditions for productive collaboration.
 plcQuestion: How will we work together in a way that keeps student learning at the center?
 criticalQuestions: []
 product: Specific, measurable team norms (behavioral commitments) and assigned team roles.
-resources: [developing-team-norms, ems-developing-norms, developing-specific-actions, developing-specific-actions-sample, sample-team-norms, steps-establishing-team-norms, identifying-team-norms-protocol, selecting-collective-commitments, collaborative-team-rubric, why-create-norms, nice-to-knows-article, ems-holding-accountable, ems-norm-breaker-activity, establishing-team-roles, plc-team-roles, ems-team-roles]
+resources: [developing-team-norms, ems-developing-norms, developing-specific-actions, developing-specific-actions-sample, sample-team-norms, steps-establishing-team-norms, identifying-team-norms-protocol, selecting-collective-commitments, why-create-norms, nice-to-knows-article, ems-holding-accountable, ems-norm-breaker-activity, establishing-team-roles, plc-team-roles, ems-team-roles]
 revisit: []
 buffer: false
 turningPoint: false
