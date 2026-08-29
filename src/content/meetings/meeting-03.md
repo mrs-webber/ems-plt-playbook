@@ -4,8 +4,9 @@ title: Team Self-Assessment
 focus: Naming current reality.
 plcQuestion: Where are we as a team right now?
 criticalQuestions: []
-product: Completed team self-assessment (including a Collaborative Team Rubric baseline) and selected course/unit focus.
-resources: [collaborative-team-rubric, critical-issues, four-questions-readiness]
+agendaPdf: /agendas/ems-meeting-3-agenda.pdf
+product: A Collaborative Team Rubric baseline and one named area of team focus for the cycle.
+resources: [collaborative-team-rubric]
 revisit: []
 buffer: false
 turningPoint: false
@@ -15,11 +16,10 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review team norms. |
-| 5–18 min | Baseline the team on the Collaborative Team Rubric — rate silently first, then compare and agree. Add the readiness / Critical Issues self-assessment. |
-| 18–30 min | Discuss patterns: Where are we already functioning well? Where are we stuck? |
-| 30–40 min | Identify one area of focus — including one rubric descriptor to move up a level by the next check-in. |
-| 40–45 min | Choose the course/unit area the team will use for this year's cycle. |
+| 0–5 min | Review team norms and agree to reflect honestly — this is not an evaluation. |
+| 5–20 min | Baseline the team on the Collaborative Team Rubric — rate silently first, then compare and reach consensus. |
+| 20–35 min | Discuss patterns: where are we already functioning well? Where are we stuck? |
+| 35–45 min | Name one area of team focus — and one rubric descriptor to move up a level by Meeting 12. |
 
 ### Why This Meeting Matters
 

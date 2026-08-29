@@ -14,17 +14,16 @@
     { "t": "Hand off to Meeting 4 (≈2 min)", "d": "Note what still needs finalizing — you'll refine norms and finish accountability at the Meeting 4 buffer." }
   ],
   "3": [
-    { "t": "Start with your norms (≈5 min)", "d": "Agree up front to be honest without judgment." },
-    { "t": "Baseline your teamwork (≈13 min)", "d": "Score the Collaborative Team Rubric — frame it as a mirror, not a grade. It stays with the team and isn't reported up. Rate silently first, then compare and reach consensus; expect to be \"emerging\" in spots — that's a baseline you'll beat. Add the readiness / Critical Issues self-assessment." },
-    { "t": "Spot patterns (≈12 min)", "d": "Where are you already functioning well? Where are you stuck?" },
-    { "t": "Pick a focus (≈10 min)", "d": "Name one area to grow this cycle — including one rubric descriptor to move up a level by your next check-in." },
-    { "t": "Choose your course/unit (≈5 min)", "d": "Decide the course or unit you'll use for this year's learning cycle." }
+    { "t": "Set the tone (≈5 min)", "d": "Review your norms and agree up front: this is honest reflection, not evaluation, and nobody is being graded." },
+    { "t": "Baseline your teamwork (≈15 min)", "d": "Score the Collaborative Team Rubric — a mirror, not a grade. It stays with the team and isn't reported up. Everyone rates silently first, then compare where you differ (the gaps are the best conversation) and agree on a rating. Expect to be \"emerging\" in spots — that's a baseline you'll beat." },
+    { "t": "Spot patterns (≈15 min)", "d": "Look across your ratings: where is the team already strong? Where are you stuck? Name it without blame." },
+    { "t": "Pick one focus (≈10 min)", "d": "Choose one rubric descriptor to move up a level by your next check-in at Meeting 12. Write it down — that's your team's growth goal for the cycle." }
   ],
   "4": [
-    { "t": "Clear up confusion (≈10 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
-    { "t": "Finalize your team foundation (≈12 min)", "d": "Refine the roles and norms you drafted in Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. This locks in how you'll work before content begins." },
-    { "t": "Confirm your unit (≈10 min)", "d": "Lock in the course/unit for this cycle." },
-    { "t": "List possible essential standards (≈10 min)", "d": "Brainstorm candidates for the one standard you'll guarantee." },
+    { "t": "Clear up confusion (≈8 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
+    { "t": "Finalize your team foundation (≈10 min)", "d": "Refine the roles and norms you drafted in Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. This locks in how you'll work before content begins." },
+    { "t": "Readiness check (≈10 min)", "d": "Use the Four Critical Questions readiness tool to name, question by question, where the team is ready for the cycle and where it still needs support. Be honest — this is what keeps teams from moving forward while pretending." },
+    { "t": "Confirm unit + list standards (≈12 min)", "d": "Lock in the unit/course for this cycle, then brainstorm the essential standards you'll choose from at Meeting 5." },
     { "t": "Assign pre-work (≈5 min)", "d": "Decide what standards and materials everyone brings next time." }
   ],
   "5": [
@@ -120,10 +119,10 @@
     { "t": "Capture the cycle's learning (≈7 min)", "d": "What did the full cycle teach you?" }
   ],
   "18": [
-    { "t": "Retrace the cycle (≈10 min)", "d": "Walk from essential standard all the way to reassessment." },
-    { "t": "Reflect as a team (≈12 min)", "d": "Use the Learning Team Quarterly Reflection." },
-    { "t": "Re-score your teamwork (≈6 min)", "d": "Take the Collaborative Team Rubric one final time and set it beside your Meeting 3 baseline and mid-year check. Name how far the team has come — in specific, observable terms. This is the growth you built all year." },
-    { "t": "Name the takeaways (≈10 min)", "d": "What worked, what was hard, and what to change next year." },
+    { "t": "Retrace the cycle (≈8 min)", "d": "Walk from essential standard all the way to reassessment." },
+    { "t": "Reflect as a team (≈12 min)", "d": "Use the Learning Team Quarterly Reflection, then complete the Critical Issues self-assessment — a comprehensive read on how far your PLC practice has come. The questions that were premature in September now have real answers." },
+    { "t": "Re-score your teamwork (≈8 min)", "d": "Take the Collaborative Team Rubric one final time and set it beside your Meeting 3 baseline and mid-year check. Name how far the team has come — in specific, observable terms. This is the growth you built all year." },
+    { "t": "Name the takeaways (≈8 min)", "d": "What worked, what was hard, and what to change next year." },
     { "t": "Pick one thing to strengthen (≈5 min)", "d": "Choose one PLC practice to grow in your next cycle." },
     { "t": "Celebrate (≈5 min)", "d": "You completed an authentic cycle. Acknowledge it together." }
   ]

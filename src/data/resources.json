@@ -185,14 +185,14 @@
     "id": "critical-issues",
     "title": "Critical Issues for Team Consideration",
     "source": "Solution Tree",
-    "category": "Culture & Foundations",
-    "required": true,
+    "category": "Reflection & Monitoring",
+    "required": false,
     "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_HHET/toolcriticalissuesforteamconsiderationhighlyeffectiveteamactions.pdf",
     "linkLabel": "Download PDF",
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 1.4",
-    "description": "A team self-assessment covering norms, SMART goals, essential learnings, common assessments, proficiency criteria, use of results, and intervention. Helps teams name their current reality.",
-    "howToUse": "Use as a baseline check (Meeting 3), then revisit at midyear and end-of-year (Meeting 18). A good, non-punitive Guiding Coalition monitoring tool."
+    "description": "A comprehensive team self-assessment covering the full PLC practice set — norms, SMART goals, essential learnings, common assessments, proficiency criteria, use of results, and intervention.",
+    "howToUse": "Use at Meeting 18 as a year-end read on how far the team's PLC practice has matured — the questions that would be premature in September have real answers by May. A non-punitive Guiding Coalition monitoring tool."
   },
   {
     "id": "reviewing-norms",
