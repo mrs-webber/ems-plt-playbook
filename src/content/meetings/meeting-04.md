@@ -19,8 +19,8 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–10 min | Review team norms and roles, then revisit any confusion from Meetings 1–3. |
-| 10–25 min | Finalize your team foundation: refine the roles and norms from Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. |
+| 0–5 min | Review team norms and roles, then revisit any confusion from Meetings 1–3. |
+| 5–25 min | Finalize your team foundation: refine the roles and norms from Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. Use the readiness checklist on the back of this agenda to confirm every task from Meetings 1–4 is complete. |
 | 25–40 min | Readiness check: use the Four Critical Questions readiness tool to name where the team is ready for the cycle and where it still needs support. |
 | 40–45 min | Decide what standards and materials everyone brings to Meeting 5, where the standards work begins. |
 
