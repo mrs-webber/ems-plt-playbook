@@ -5,6 +5,7 @@ focus: Naming current reality.
 plcQuestion: Where are we as a team right now?
 criticalQuestions: []
 agendaPdf: /agendas/ems-meeting-3-agenda.pdf
+agendaWord: /agendas/ems-meeting-3-agenda.docx
 product: A Collaborative Team Rubric baseline and one named area of team focus for the cycle.
 resources: [collaborative-team-rubric]
 revisit: []

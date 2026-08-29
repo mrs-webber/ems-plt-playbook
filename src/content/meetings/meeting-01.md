@@ -5,6 +5,7 @@ focus: Culture shift and shared purpose.
 plcQuestion: Why are we changing how PLTs work?
 criticalQuestions: []
 agendaPdf: /agendas/ems-meeting-1-agenda.pdf
+agendaWord: /agendas/ems-meeting-1-agenda.docx
 product: 'A shared understanding of why the PLC process matters — named as the shift your team is making: "less on ______, and more on ______."'
 resources: [cultural-shifts, big-ideas-pillars-questions]
 revisit: []
