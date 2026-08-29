@@ -4,6 +4,8 @@ title: Reset and Readiness Check
 focus: Buffer meeting for culture, clarity, and questions.
 plcQuestion: Are we ready to begin the actual learning cycle?
 criticalQuestions: []
+agendaPdf: /agendas/ems-meeting-4-agenda.pdf
+agendaWord: /agendas/ems-meeting-4-agenda.docx
 product: A finalized team foundation and a completed readiness check for the cycle.
 resources: [reviewing-norms, four-questions-readiness]
 revisit: [ems-team-roles, ems-developing-norms, ems-holding-accountable]

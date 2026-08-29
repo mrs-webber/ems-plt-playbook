@@ -4,6 +4,8 @@ title: Instructional Planning Before the CFA
 focus: Planning instruction with the end in mind.
 plcQuestion: What instructional practices will give students the best chance to learn this?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-11-agenda.pdf
+agendaWord: /agendas/ems-meeting-11-agenda.docx
 product: Instructional plan connected to learning targets.
 resources: [pacing-guide, prerequisite-planning]
 revisit: []

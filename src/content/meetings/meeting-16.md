@@ -4,6 +4,8 @@ title: Intervention/Extension Check
 focus: Monitoring the response.
 plcQuestion: Is our response working?
 criticalQuestions: [3, 4]
+agendaPdf: /agendas/ems-meeting-16-agenda.pdf
+agendaWord: /agendas/ems-meeting-16-agenda.docx
 product: Adjusted intervention/extension plan.
 resources: [flexible-time]
 revisit: [intervention-plan, tiered-task-card]

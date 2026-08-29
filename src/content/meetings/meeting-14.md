@@ -4,6 +4,8 @@ title: Teacher Learning From the Data
 focus: Using results to improve adult practice.
 plcQuestion: What did we learn from the results?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-14-agenda.pdf
+agendaWord: /agendas/ems-meeting-14-agenda.docx
 product: Teacher learning reflection.
 resources: [teacher-self-reflection, ems-teacher-reflection]
 revisit: [analyzing-results-protocol]

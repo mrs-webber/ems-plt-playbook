@@ -4,6 +4,8 @@ title: Mid-Cycle Check and Troubleshooting
 focus: Buffer meeting during instruction.
 plcQuestion: What are we noticing before the assessment?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-12-agenda.pdf
+agendaWord: /agendas/ems-meeting-12-agenda.docx
 product: Instructional adjustment plan before the CFA.
 resources: [common-misconceptions]
 revisit: [pacing-guide, collaborative-team-rubric]

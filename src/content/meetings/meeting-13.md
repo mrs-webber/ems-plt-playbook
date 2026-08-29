@@ -4,6 +4,8 @@ title: CFA Data Review
 focus: Analyzing evidence of student learning.
 plcQuestion: How did students do, target by target?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-13-agenda.pdf
+agendaWord: /agendas/ems-meeting-13-agenda.docx
 product: Student groups by learning target.
 resources: [analyzing-results-protocol, item-analysis, ems-evidence-protocol]
 revisit: []

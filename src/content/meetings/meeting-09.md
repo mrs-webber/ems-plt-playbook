@@ -4,6 +4,8 @@ title: Designing the Common Formative Assessment
 focus: 'PLC Question 2: How will we know if students learned it?'
 plcQuestion: How will we know if students learned it?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-9-agenda.pdf
+agendaWord: /agendas/ems-meeting-9-agenda.docx
 product: Draft common formative assessment.
 resources: [building-cfa, ems-cfa-planner]
 revisit: []

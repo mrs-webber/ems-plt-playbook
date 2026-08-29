@@ -4,6 +4,8 @@ title: Buffer and Calibration
 focus: Reinforcement before assessment design.
 plcQuestion: Are we truly clear on what students must learn and what proficiency looks like?
 criticalQuestions: [1]
+agendaPdf: /agendas/ems-meeting-8-agenda.pdf
+agendaWord: /agendas/ems-meeting-8-agenda.docx
 product: Finalized learning targets and success criteria.
 resources: []
 revisit: [gaining-shared-clarity, success-checklist]

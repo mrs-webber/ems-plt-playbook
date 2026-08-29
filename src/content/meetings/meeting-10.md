@@ -4,6 +4,8 @@ title: CFA Quality Check
 focus: Making sure the assessment is aligned, clear, and useful.
 plcQuestion: Will this assessment give us the evidence we need?
 criticalQuestions: [2]
+agendaPdf: /agendas/ems-meeting-10-agenda.pdf
+agendaWord: /agendas/ems-meeting-10-agenda.docx
 product: Final CFA, scoring plan, and assessment timeline.
 resources: [acid-test, actionable-data-tool]
 revisit: [ems-cfa-planner]

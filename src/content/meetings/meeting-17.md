@@ -4,6 +4,8 @@ title: Reassessment and Results
 focus: Determining whether the response worked.
 plcQuestion: Did students learn after additional time and support?
 criticalQuestions: [3, 4]
+agendaPdf: /agendas/ems-meeting-17-agenda.pdf
+agendaWord: /agendas/ems-meeting-17-agenda.docx
 product: Reassessment results and final student learning evidence.
 resources: []
 revisit: [analyzing-results-protocol, actionable-data-tool]

@@ -4,6 +4,8 @@ title: Intervention and Extension Planning
 focus: 'PLC Questions 3 and 4.'
 plcQuestion: What will we do for students who have not learned it — and for those who already have?
 criticalQuestions: [3, 4]
+agendaPdf: /agendas/ems-meeting-15-agenda.pdf
+agendaWord: /agendas/ems-meeting-15-agenda.docx
 product: Intervention plan, extension plan, and reassessment plan.
 resources: [intervention-plan, tiered-task-card, ems-intervention-tool, ems-extension-tool]
 revisit: []

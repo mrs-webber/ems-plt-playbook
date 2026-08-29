@@ -4,6 +4,8 @@ title: Full Cycle Reflection and Next Steps
 focus: Celebrating completion and preparing for the next cycle.
 plcQuestion: What did we learn, and what will we do differently next time?
 criticalQuestions: []
+agendaPdf: /agendas/ems-meeting-18-agenda.pdf
+agendaWord: /agendas/ems-meeting-18-agenda.docx
 product: Completed team reflection and next-cycle recommendation.
 resources: [quarterly-reflection, critical-issues]
 revisit: [collaborative-team-rubric]

@@ -4,6 +4,8 @@ title: Identifying Essential Standards
 focus: 'PLC Question 1: What do we want students to learn?'
 plcQuestion: What do we want students to learn?
 criticalQuestions: [1]
+agendaPdf: /agendas/ems-meeting-5-agenda.pdf
+agendaWord: /agendas/ems-meeting-5-agenda.docx
 product: One selected essential standard.
 resources: [real-essential-standards, deconstructing-standard, ems-essential-standards-organizer]
 revisit: []
