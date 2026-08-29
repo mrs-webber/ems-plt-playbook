@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–3 min | Frame the flow: today we set up how our team works — roles, norms, and how we'll hold each other to them. Revisit your Meeting 1 commitment. |
+| 0–3 min | Frame the flow: today we set up how our team works — roles, norms, and how we'll hold each other to them. Revisit the why and the shift you named in Meeting 1. |
 | 3–13 min | **Roles** — assign your team roles using the Team Roles worksheet. |
 | 13–33 min | **Norms** — turn vague values into 4–6 specific, observable "We will…" norms using the Developing Specific Norms worksheet. |
 | 33–43 min | **Accountability** — agree your protocol and practice one move using the Holding Each Other Accountable worksheet. |

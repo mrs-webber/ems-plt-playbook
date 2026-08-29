@@ -5,7 +5,7 @@ focus: Culture shift and shared purpose.
 plcQuestion: Why are we changing how PLTs work?
 criticalQuestions: []
 agendaPdf: /agendas/ems-meeting-1-agenda.pdf
-product: 'Each team writes one sentence: "This year, our PLT will focus less on ______ and more on ______."'
+product: 'A shared understanding of why the PLC process matters — named as the shift your team is making: "less on ______, and more on ______."'
 resources: [cultural-shifts, big-ideas-pillars-questions]
 revisit: []
 buffer: false
@@ -22,7 +22,7 @@ turningPoint: false
 | 5–15 min | Discuss the difference between PLT Lite and PLC Right. |
 | 15–30 min | Review the four critical questions and connect them to student learning. |
 | 30–40 min | Team reflection: Where are we currently strong? Where are we still operating as PLT Lite? |
-| 40–45 min | Identify one team commitment for the year. |
+| 40–45 min | Name the shift your team is making: "This year, less on ______ and more on ______" — grounding the why. |
 
 ### Why This Meeting Matters
 
