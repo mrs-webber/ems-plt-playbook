@@ -15,9 +15,9 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review the selected unit/course focus. |
+| 0–5 min | Frame the standards work: this is where the learning cycle begins — you'll choose one essential standard to guarantee. |
 | 5–15 min | Discuss the difference between "what we teach" and "what students must learn." |
-| 15–35 min | Use criteria to identify one essential standard for the learning cycle. |
+| 15–35 min | Review your course's standards and use REAL criteria to identify one essential standard for the learning cycle. |
 | 35–43 min | Confirm the selected essential standard. |
 | 43–45 min | Assign pre-work: bring student work samples, curriculum resources, and assessment examples connected to the standard. |
 

@@ -20,16 +20,15 @@
     { "t": "Pick one focus (≈10 min)", "d": "Choose one rubric descriptor to move up a level by your next check-in at Meeting 12. Write it down — that's your team's growth goal for the cycle." }
   ],
   "4": [
-    { "t": "Clear up confusion (≈8 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
-    { "t": "Finalize your team foundation (≈10 min)", "d": "Refine the roles and norms you drafted in Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. This locks in how you'll work before content begins." },
-    { "t": "Readiness check (≈10 min)", "d": "Use the Four Critical Questions readiness tool to name, question by question, where the team is ready for the cycle and where it still needs support. Be honest — this is what keeps teams from moving forward while pretending." },
-    { "t": "Confirm unit + list standards (≈12 min)", "d": "Lock in the unit/course for this cycle, then brainstorm the essential standards you'll choose from at Meeting 5." },
-    { "t": "Assign pre-work (≈5 min)", "d": "Decide what standards and materials everyone brings next time." }
+    { "t": "Clear up confusion (≈10 min)", "d": "Revisit anything unclear from Meetings 1–3. This pause is planned, not lost time." },
+    { "t": "Finalize your team foundation (≈15 min)", "d": "Refine the roles and norms you drafted in Meeting 2, and complete the Holding Each Other Accountable worksheet if it was a first pass. This locks in how you'll work before content begins." },
+    { "t": "Readiness check (≈15 min)", "d": "Use the Four Critical Questions readiness tool to name, question by question, where the team is ready for the cycle and where it still needs support. Be honest — this is what keeps teams from moving forward while pretending." },
+    { "t": "Assign pre-work (≈5 min)", "d": "Decide what standards and materials everyone brings to Meeting 5, where the standards work begins." }
   ],
   "5": [
-    { "t": "Review your unit (≈5 min)", "d": "Re-anchor on the course/unit you chose." },
+    { "t": "Frame the work (≈5 min)", "d": "This is where the learning cycle begins — your team will pick one essential standard to guarantee. Pull up the standards for your course." },
     { "t": "Teach vs. learn (≈10 min)", "d": "Discuss the difference between what we teach and what students must learn." },
-    { "t": "Choose one essential standard (≈20 min)", "d": "Use REAL — readiness, endurance, assessed, leverage — to select just one." },
+    { "t": "Choose one essential standard (≈20 min)", "d": "Review your standards and use REAL — readiness, endurance, assessed, leverage — to select just one." },
     { "t": "Confirm it (≈8 min)", "d": "Agree on the single essential standard for this cycle." },
     { "t": "Assign pre-work (≈2 min)", "d": "Bring student work samples, curriculum, and assessment examples next time." }
   ],
