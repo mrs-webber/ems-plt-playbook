@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Revisit the selected essential standard. |
+| 0–5 min | Review team norms and roles, then revisit the selected essential standard. |
 | 5–15 min | Identify key concepts, skills, vocabulary, and rigor. |
 | 15–35 min | Break the standard into learning targets. |
 | 35–43 min | Draft student-friendly "I can" statements. |

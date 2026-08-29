@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review reassessment evidence. |
+| 0–5 min | Review team norms and roles, then review reassessment evidence. |
 | 5–20 min | Identify which students improved and which students still need support. |
 | 20–30 min | Discuss which intervention/extension strategies worked best. |
 | 30–38 min | Decide any final support needed for remaining students. |

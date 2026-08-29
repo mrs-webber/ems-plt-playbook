@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review learning targets and success criteria. |
+| 0–5 min | Review team norms and roles, then review learning targets and success criteria. |
 | 5–15 min | Discuss what evidence would prove students learned the target. |
 | 15–35 min | Draft or select common assessment items/tasks. |
 | 35–43 min | Check alignment to the learning targets. |

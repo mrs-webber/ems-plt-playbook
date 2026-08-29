@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review student data patterns. |
+| 0–5 min | Review team norms and roles, then review student data patterns. |
 | 5–20 min | Identify which instructional strategies appeared to work best. |
 | 20–30 min | Discuss differences in results without blame. |
 | 30–40 min | Decide what the team should replicate, revise, or stop doing. |

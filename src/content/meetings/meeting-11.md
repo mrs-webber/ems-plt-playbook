@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review CFA and learning targets. |
+| 0–5 min | Review team norms and roles, then review CFA and learning targets. |
 | 5–20 min | Share instructional strategies for each target. |
 | 20–30 min | Identify possible misconceptions or prerequisite gaps. |
 | 30–40 min | Decide how the team will check for understanding before the CFA. |

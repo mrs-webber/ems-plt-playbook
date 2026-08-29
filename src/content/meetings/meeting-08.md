@@ -19,7 +19,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–10 min | Review the essential standard, learning targets, and success criteria. |
+| 0–10 min | Review team norms and roles, then review the essential standard, learning targets, and success criteria. |
 | 10–25 min | Calibrate using a sample question, task, or student response. |
 | 25–35 min | Identify gaps or disagreements. |
 | 35–43 min | Revise learning targets or proficiency criteria as needed. |

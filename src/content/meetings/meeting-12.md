@@ -19,7 +19,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Re-score the Collaborative Team Rubric and compare to your Meeting 3 baseline — where has the team grown? |
+| 0–5 min | Review team norms and roles, then re-score the Collaborative Team Rubric and compare to your Meeting 3 baseline — where has the team grown? |
 | 5–15 min | Share early evidence of student understanding. |
 | 15–27 min | Identify common student misconceptions. |
 | 27–36 min | Adjust instruction before the CFA. |

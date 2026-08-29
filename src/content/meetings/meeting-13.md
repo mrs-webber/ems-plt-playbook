@@ -19,7 +19,7 @@ turningPoint: true
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Norm reminder: data is evidence, not judgment. |
+| 0–5 min | Review team norms and roles — and data is evidence, not judgment. |
 | 5–15 min | Review results by learning target. |
 | 15–30 min | Identify students who are proficient, not yet proficient, and ready for extension. |
 | 30–38 min | Look for patterns across teachers/classes. |

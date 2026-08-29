@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review the draft CFA. |
+| 0–5 min | Review team norms and roles, then review the draft CFA. |
 | 5–20 min | Check each question/task against the learning target. |
 | 20–30 min | Agree on scoring expectations. |
 | 30–38 min | Decide how data will be recorded by student and by target. |

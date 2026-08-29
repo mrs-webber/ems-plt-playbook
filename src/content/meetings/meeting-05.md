@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Frame the standards work: this is where the learning cycle begins — you'll choose one essential standard to guarantee. |
+| 0–5 min | Review team norms and roles, then frame the standards work: this is where the learning cycle begins — you'll choose one essential standard to guarantee. |
 | 5–15 min | Discuss the difference between "what we teach" and "what students must learn." |
 | 15–35 min | Review your course's standards and use REAL criteria to identify one essential standard for the learning cycle. |
 | 35–43 min | Confirm the selected essential standard. |

@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review team norms and agree to reflect honestly — this is not an evaluation. |
+| 0–5 min | Review team norms and roles and agree to reflect honestly — this is not an evaluation. |
 | 5–20 min | Baseline the team on the Collaborative Team Rubric — rate silently first, then compare and reach consensus. |
 | 20–35 min | Discuss patterns: where are we already functioning well? Where are we stuck? |
 | 35–45 min | Name one area of team focus — and one rubric descriptor to move up a level by Meeting 12. |

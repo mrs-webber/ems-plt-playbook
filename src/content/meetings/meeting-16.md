@@ -19,7 +19,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–10 min | Share what happened during intervention and extension. |
+| 0–10 min | Review team norms and roles, then share what happened during intervention and extension. |
 | 10–25 min | Review student participation and progress evidence. |
 | 25–35 min | Adjust intervention or extension if needed. |
 | 35–43 min | Confirm reassessment plan. |

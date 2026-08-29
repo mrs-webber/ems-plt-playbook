@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–8 min | Review the full learning cycle from essential standard to reassessment. |
+| 0–8 min | Review team norms and roles, then review the full learning cycle from essential standard to reassessment. |
 | 8–20 min | Complete the team reflection and the Critical Issues self-assessment — an honest look at how far your PLC practice has come this year. |
 | 20–28 min | Re-score the Collaborative Team Rubric and set it beside your Meeting 3 baseline and mid-year check. |
 | 28–38 min | Name what worked, what was hard, and what to adjust next year; choose one PLC practice to strengthen. |

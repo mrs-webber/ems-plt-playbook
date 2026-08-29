@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review priority learning target. |
+| 0–5 min | Review team norms and roles, then review priority learning target. |
 | 5–20 min | Plan intervention for students who are not yet proficient. |
 | 20–30 min | Plan extension for students who are already proficient. |
 | 30–38 min | Decide who will provide support, when it will happen, and what students will do. |

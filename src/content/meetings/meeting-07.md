@@ -17,7 +17,7 @@ turningPoint: false
 
 | Time | Focus |
 | --- | --- |
-| 0–5 min | Review learning targets. |
+| 0–5 min | Review team norms and roles, then review learning targets. |
 | 5–15 min | Discuss what proficient student work should include. |
 | 15–30 min | Create success criteria for each target. |
 | 30–40 min | Look at sample tasks or student work, if available, and discuss whether they show proficiency. |
