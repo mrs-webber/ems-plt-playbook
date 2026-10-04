@@ -218,20 +218,20 @@
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 2.3",
     "description": "Helps teams decide what is truly essential using four filters: Readiness, Endurance, Assessed, and Leverage. Especially useful for teams that want to teach everything equally.",
-    "howToUse": "Use when selecting the one essential standard for this year's cycle (Meeting 5)."
+    "howToUse": "Use to select the one essential standard for this cycle (Meeting 5); record it on the Essential Learning Map (Step 1)."
   },
   {
     "id": "deconstructing-standard",
     "title": "Deconstructing an Essential Standard",
     "source": "Solution Tree",
     "category": "Clarifying Essential Learning",
-    "required": false,
+    "required": true,
     "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_HHET/tooldeconstructinganessentialstandard.pdf",
     "linkLabel": "Download PDF",
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 2.1",
     "description": "Breaks a standard into what students must know, understand, and be able to do — the bridge from a broad standard to teachable, assessable learning targets.",
-    "howToUse": "Optional, deeper method for unpacking the standard into learning targets (Meeting 6). The EMS Learning Target Breakdown is the primary tool."
+    "howToUse": "Use to unpack your essential standard into learning targets (Meeting 6); record the results on the Essential Learning Map (Step 2)."
   },
   {
     "id": "gaining-shared-clarity",
@@ -244,7 +244,7 @@
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 2.1",
     "description": "Helps a team reach genuine agreement on what proficiency looks like — so the same assessment isn't scored through different lenses.",
-    "howToUse": "Use when defining proficiency (Meeting 7) and revisit to calibrate before designing the assessment (Meeting 8)."
+    "howToUse": "Use to agree on what proficiency looks like (Meeting 7); record success criteria on the Essential Learning Map (Step 3)."
   },
   {
     "id": "success-checklist",
@@ -257,7 +257,7 @@
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 3.3",
     "description": "A template for building clear success criteria for each learning target.",
-    "howToUse": "Use to make proficiency concrete (Meetings 7 and 8)."
+    "howToUse": "Use to make success criteria concrete (Meeting 7); record them on the Essential Learning Map (Step 3)."
   },
   {
     "id": "building-cfa",
@@ -505,32 +505,6 @@
     "howToUse": "Complete after writing your norms so the team agrees how it will hold itself accountable and has language ready for the conversation. Revisit whenever a norm slips."
   },
   {
-    "id": "ems-essential-standards-organizer",
-    "title": "EMS Template: Essential Standards Organizer",
-    "source": "EMS-created",
-    "category": "EMS Editable Templates",
-    "required": false,
-    "url": "/guide/#step-2",
-    "linkLabel": "Open in the Guide",
-    "pdf": "/templates/ems-essential-standards-organizer.pdf",
-    "word": "/templates/ems-essential-standards-organizer.docx",
-    "description": "Organizes each essential standard into what students must know, do, the academic vocabulary, and what proficiency looks like.",
-    "howToUse": "Optional recording sheet for the essential standard your team selects (Meeting 5)."
-  },
-  {
-    "id": "ems-learning-target-breakdown",
-    "title": "EMS Template: Learning Target Breakdown",
-    "source": "EMS-created",
-    "category": "EMS Editable Templates",
-    "required": true,
-    "url": "/guide/#step-3",
-    "linkLabel": "Open in the Guide",
-    "pdf": "/templates/ems-learning-target-breakdown.pdf",
-    "word": "/templates/ems-learning-target-breakdown.docx",
-    "description": "Breaks an essential standard into learning targets with student-friendly \"I can\" statements and how each will be taught and checked.",
-    "howToUse": "Complete in Step 3 / Meeting 6."
-  },
-  {
     "id": "ems-cfa-planner",
     "title": "EMS Template: Common Formative Assessment Planner",
     "source": "EMS-created",
@@ -606,6 +580,19 @@
     "pdf": "/templates/ems-proficiency-anchors.pdf",
     "word": "/templates/ems-proficiency-anchors.docx",
     "description": "Each teacher writes a proficient and a not-yet anchor for a key learning target; the team compares them, names the disagreements, and refines the success criteria — a shared picture of proficiency before students produce any work.",
-    "howToUse": "Use in Meeting 8 to define proficiency together, before the common assessment exists. Real scoring calibration comes later, after students take the CFA."
+    "howToUse": "Use to write and compare proficiency anchors together (Meeting 8); record the agreed anchors on the Essential Learning Map (Step 4)."
+  },
+  {
+    "id": "ems-essential-learning-map",
+    "title": "EMS Template: Essential Learning Map",
+    "source": "EMS-created",
+    "category": "EMS Editable Templates",
+    "required": true,
+    "url": "/meetings/5",
+    "linkLabel": "Starts at Meeting 5",
+    "pdf": "/templates/ems-essential-learning-map.pdf",
+    "word": "/templates/ems-essential-learning-map.docx",
+    "description": "The single form your team builds across Meetings 5–8: essential standard → learning targets → success criteria → proficiency anchors. One record for the whole Clarifying Essential Learning cycle.",
+    "howToUse": "Open it at Meeting 5 and complete one step per meeting (Steps 1–4). The Solution Tree tools linked in each step do the thinking; the Map captures the result. Completed by the end of Meeting 8."
   }
 ]

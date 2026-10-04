@@ -7,7 +7,7 @@ criticalQuestions: [1]
 agendaPdf: /agendas/ems-meeting-7-agenda.pdf
 agendaWord: /agendas/ems-meeting-7-agenda.docx
 product: Success criteria for the selected learning targets.
-resources: [gaining-shared-clarity, success-checklist]
+resources: [gaining-shared-clarity, success-checklist, ems-essential-learning-map]
 revisit: []
 buffer: false
 turningPoint: false

@@ -7,7 +7,7 @@ criticalQuestions: [1]
 agendaPdf: /agendas/ems-meeting-8-agenda.pdf
 agendaWord: /agendas/ems-meeting-8-agenda.docx
 product: Agreed proficiency anchors and refined success criteria for each learning target.
-resources: [ems-proficiency-anchors]
+resources: [ems-proficiency-anchors, ems-essential-learning-map]
 revisit: [gaining-shared-clarity, success-checklist]
 buffer: false
 turningPoint: false

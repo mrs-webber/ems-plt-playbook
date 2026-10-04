@@ -7,7 +7,7 @@ criticalQuestions: [1]
 agendaPdf: /agendas/ems-meeting-6-agenda.pdf
 agendaWord: /agendas/ems-meeting-6-agenda.docx
 product: Draft learning targets for the essential standard.
-resources: [ems-learning-target-breakdown, deconstructing-standard]
+resources: [deconstructing-standard, ems-essential-learning-map]
 revisit: []
 buffer: false
 turningPoint: false
