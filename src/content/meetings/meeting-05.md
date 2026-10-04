@@ -21,7 +21,7 @@ turningPoint: false
 | 5–15 min | Discuss the difference between "what we teach" and "what students must learn." |
 | 15–35 min | Review your course's standards and use REAL criteria to identify one essential standard for the learning cycle. |
 | 35–43 min | Confirm the selected essential standard. |
-| 43–45 min | Assign pre-work: bring student work samples, curriculum resources, and assessment examples connected to the standard. |
+| 43–45 min | Assign pre-work: bring the full text of your essential standard and your course's standards/curriculum materials for it — the raw material you'll break into learning targets next time. |
 
 ### Why This Meeting Matters
 

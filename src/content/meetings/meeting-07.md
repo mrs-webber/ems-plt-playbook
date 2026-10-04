@@ -20,7 +20,7 @@ turningPoint: false
 | 0–5 min | Review team norms and roles, then review learning targets. |
 | 5–15 min | Discuss what proficient student work should include. |
 | 15–30 min | Create success criteria for each target. |
-| 30–40 min | Look at sample tasks or student work, if available, and discuss whether they show proficiency. |
+| 30–40 min | Pressure-test your criteria: sketch what a proficient response would look like and check whether your success criteria capture it — you'll do the full anchor comparison at Meeting 8. |
 | 40–45 min | Finalize success criteria or identify what still needs revision. |
 
 ### Why This Meeting Matters
