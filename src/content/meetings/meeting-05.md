@@ -7,7 +7,7 @@ criticalQuestions: [1]
 agendaPdf: /agendas/ems-meeting-5-agenda.pdf
 agendaWord: /agendas/ems-meeting-5-agenda.docx
 product: One selected essential standard.
-resources: [real-essential-standards, deconstructing-standard, ems-essential-standards-organizer]
+resources: [real-essential-standards, ems-essential-standards-organizer]
 revisit: []
 buffer: false
 turningPoint: false

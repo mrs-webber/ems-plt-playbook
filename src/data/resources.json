@@ -225,26 +225,13 @@
     "title": "Deconstructing an Essential Standard",
     "source": "Solution Tree",
     "category": "Clarifying Essential Learning",
-    "required": true,
+    "required": false,
     "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_HHET/tooldeconstructinganessentialstandard.pdf",
     "linkLabel": "Download PDF",
     "book": "The Handbook for Highly Effective Teams in a PLC at Work",
     "bookLocation": "Action 2.1",
     "description": "Breaks a standard into what students must know, understand, and be able to do — the bridge from a broad standard to teachable, assessable learning targets.",
-    "howToUse": "Use right after a team identifies its essential standard (Meetings 5 and 6)."
-  },
-  {
-    "id": "standards-unpacking",
-    "title": "Standards Unpacking Template",
-    "source": "Solution Tree",
-    "category": "Clarifying Essential Learning",
-    "required": false,
-    "url": "https://cloudfront-s3.solutiontree.com/pdfs/Reproducibles_FDC/standardsunpackingtemplate.pdf",
-    "linkLabel": "Download PDF",
-    "book": "The 15-Day Challenge",
-    "bookLocation": "Chapter 3",
-    "description": "A template for turning standards into learning targets and student-friendly \"I can\" statements.",
-    "howToUse": "Use after essential standards are selected (Meeting 6). Pairs directly with the EMS Learning Target Breakdown."
+    "howToUse": "Optional, deeper method for unpacking the standard into learning targets (Meeting 6). The EMS Learning Target Breakdown is the primary tool."
   },
   {
     "id": "gaining-shared-clarity",
@@ -528,14 +515,14 @@
     "pdf": "/templates/ems-essential-standards-organizer.pdf",
     "word": "/templates/ems-essential-standards-organizer.docx",
     "description": "Organizes each essential standard into what students must know, do, the academic vocabulary, and what proficiency looks like.",
-    "howToUse": "Complete in Step 2 / Meeting 5 as you identify your essential standard."
+    "howToUse": "Optional recording sheet for the essential standard your team selects (Meeting 5)."
   },
   {
     "id": "ems-learning-target-breakdown",
     "title": "EMS Template: Learning Target Breakdown",
     "source": "EMS-created",
     "category": "EMS Editable Templates",
-    "required": false,
+    "required": true,
     "url": "/guide/#step-3",
     "linkLabel": "Open in the Guide",
     "pdf": "/templates/ems-learning-target-breakdown.pdf",
@@ -607,5 +594,18 @@
     "word": "/templates/ems-teacher-reflection.docx",
     "description": "Captures what worked, the evidence for it, who can share the strategy, and what the team will try next.",
     "howToUse": "Complete in Step 8 / Meeting 14."
+  },
+  {
+    "id": "ems-proficiency-anchors",
+    "title": "EMS Template: Proficiency Anchors",
+    "source": "EMS-created",
+    "category": "EMS Editable Templates",
+    "required": true,
+    "url": "/meetings/8",
+    "linkLabel": "See Meeting 8",
+    "pdf": "/templates/ems-proficiency-anchors.pdf",
+    "word": "/templates/ems-proficiency-anchors.docx",
+    "description": "Each teacher writes a proficient and a not-yet anchor for a key learning target; the team compares them, names the disagreements, and refines the success criteria — a shared picture of proficiency before students produce any work.",
+    "howToUse": "Use in Meeting 8 to define proficiency together, before the common assessment exists. Real scoring calibration comes later, after students take the CFA."
   }
 ]
